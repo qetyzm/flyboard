@@ -5,7 +5,7 @@
         <link rel="stylesheet" href="/static/css/glyphicons.css"/>
         <script type="text/javascript" src="/static/js/jquery-3.3.1.js"></script>
         <script type="text/javascript" src="/static/js/jquery-fieldselection.js"></script>
-        <title>Test - FlyBoard<title>
+        <title>Test - FlyBoard</title>
     </head>
     <body>
         <div id="topbar">
@@ -77,23 +77,15 @@
                                     <td><input type="text" id="password-input"/></td>
                                 </tr>
                                 <tr>
-                                    <th>File</th>
-                                    <td><input type="file" id="file-input"/></td>
-                                </tr>
-                                <tr>
-                                    <th>File options</th>
-                                    <td>
-                                        <input type="checkbox" id="image-spoiler-checkbox"/>
-                                        <label for="image-spoiler-checkbox">Spoiler image</label>
-                                        <input type="checkbox" id="image-none-checkbox"/>
-                                        <label for="image-none-checkbox">No image</label>
+                                    <th>File(s)</th>
+                                    <td id="files">
+                                        <div id="image-buttons">[<a href="#" id="add-image-btn">Add</a><span id="image-btn-separator"> / </span><a href="#" id="remove-image-btn">Remove</a>]</div>
                                     </td>
                                 </tr>
                                 <tr>
                                     <th>Actions</th>
                                     <td id="action-buttons" class="horizontal-buttons">
                                         <a id="send-btn" href="#">Send</a>
-                                        <a id="clear-btn" href="#">Clear</a>
                                     </td>
                                 </tr>
                             </table>
@@ -113,6 +105,10 @@
 
         </div>
         <script type="text/javascript">
+            let minThreadFileAmount = 0;
+            let maxThreadFileAmount = 4;
+            let fileCounter = 0;
+
             function makePassword() {
                 var text = "";
                 var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()-=_+[]{};':\",./<>?";
@@ -122,7 +118,6 @@
 
                 return text;
             }
-
 
             function setCookie(cname, cvalue, exdays) {
                 var d = new Date();
@@ -207,6 +202,56 @@
                     return passwordCookie;
                 }
             });
+
+            function loadButtons() {
+                $('#image-btn-separator').addClass('hidden');
+                if (fileCounter <= minThreadFileAmount) {
+                    $('#add-image-btn').removeClass('hidden');
+                    $('#remove-image-btn').addClass('hidden');
+                } else if (fileCounter >= maxThreadFileAmount) {
+                    $('#add-image-btn').addClass('hidden');
+                    $('#remove-image-btn').removeClass('hidden');
+                } else {
+                    $('#image-btn-separator').removeClass('hidden');
+                    $('#add-image-btn').removeClass('hidden');
+                    $('#remove-image-btn').removeClass('hidden');
+                }
+            }
+
+            // Add image
+            $('#add-image-btn').click(function() {
+                fileCounter++;
+                let fileBoxId = "#file-box-" + fileCounter;
+
+                var fileBox = $('<div/>', {id: fileBoxId, class: "file-box" }).insertBefore('#image-buttons');
+                
+                $('<input/>', {
+                    type: "file",
+                    id: "file-input-" + fileCounter,
+                }).appendTo('.file-box:nth-of-type(' + fileCounter + ')');
+                $('<input/>', {
+                    type: "checkbox",
+                    id: "image-" + fileCounter + "-spoiler-checkbox",
+                }).appendTo('.file-box:nth-of-type(' + fileCounter + ')');
+                $('<label>Spoiler image</label>', {
+                    for: "image-" + fileCounter + "-spoiler-checkbox"
+                }).appendTo('.file-box:nth-of-type(' + fileCounter + ')');
+
+                loadButtons();
+            });
+
+            $('#remove-image-btn').click(function() {
+                $("#image-buttons").prev().remove();
+                fileCounter--;
+                loadButtons();
+            });
+
+            loadButtons();
+
+            for (var i = 0; i < minThreadFileAmount; i++) {
+                $('#add-image-btn').click();
+            }
+
         </script>
     </body>
 </html>

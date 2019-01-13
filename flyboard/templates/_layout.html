@@ -81,21 +81,15 @@
                                 <tr>
                                     <th>File</th>
                                     <td><input type="file" id="file-input"/></td>
-                                </tr>
-                                <tr>
-                                    <th>File options</th>
-                                    <td>
-                                        <input type="checkbox" id="image-spoiler-checkbox"/>
-                                        <label for="image-spoiler-checkbox">Spoiler image</label>
-                                        <input type="checkbox" id="image-none-checkbox"/>
-                                        <label for="image-none-checkbox">No image</label>
-                                    </td>
+                                    <input type="checkbox" id="image-spoiler-checkbox"/>
+                                    <label for="image-spoiler-checkbox">Spoiler image</label>
+                                    <input type="checkbox" id="image-none-checkbox"/>
+                                    <label for="image-none-checkbox">No image</label>
                                 </tr>
                                 <tr>
                                     <th>Actions</th>
                                     <td id="action-buttons" class="horizontal-buttons">
                                         <a id="send-btn" href="#">Send</a>
-                                        <a id="clear-btn" href="#">Clear</a>
                                     </td>
                                 </tr>
                             </table>
@@ -115,6 +109,8 @@
 
         </div>
         <script type="text/javascript">
+            let fileCounter = 1;
+
             function makePassword() {
                 var text = "";
                 var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()-=_+[]{};':\",./<>?";
