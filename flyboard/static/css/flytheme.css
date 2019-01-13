@@ -1,0 +1,160 @@
+html {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    margin: 0;
+    background: #eef2ff url(/static/assets/fade_blue.png) top center repeat-x;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+a, a:hover {
+    text-decoration: none;
+}
+
+a {
+    margin: 0;
+    color: darkblue;
+}
+
+a:hover {
+    color: red;
+}
+
+.hidden {
+    display: none;
+}
+
+hr {
+    color: lightslategray; 
+    border-style: solid; 
+    border-width: 0.5px; 
+    margin: 5px;
+    left: 0;
+    right: 0;
+    align-content: center;
+}
+
+center {
+    text-align: center;
+}
+
+#topbar {
+    font-size: 12px;
+    height: 20px;
+    width: 100%;
+    position: fixed;
+    background-color: #d7dbf2;
+    padding: 5px;
+    color: darkslategrey;
+}
+
+#header {
+    margin-top: 30px;
+    text-align: center;
+}
+
+#content {
+    flex: 1 0 auto;
+}
+
+#footer {
+    flex-shrink: 0;
+    height: 80px;
+    width: 100%;
+}
+
+.board-list {
+    float: left;
+}
+
+#settings-side {
+    float: right;
+    margin-right: 15px;
+}
+
+#board-header {
+    width: 40%;
+    min-width: 400px;
+    max-width: 500px;
+    text-align: center;
+    margin: auto;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+#board-name {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 30px;
+    color: brown;
+    font-weight: bold;
+}
+
+#banner {
+    border: solid black 1px;
+}
+
+#start-thread-wrapper {
+    font-size: 26px;
+}
+
+#users-online-text {
+    font-size: 10px;
+}
+
+#new-thread-creator-table {
+    margin: 0 auto;
+    padding: 0;
+    font-size: 12px;
+}
+
+#new-thread-creator-table th {
+    width: 70px;
+    border: 1px darkblue solid;
+    background-color: rgb(109, 136, 255);
+    color: darkblue;
+    text-align: left;
+    vertical-align: middle;
+    padding: 0 5px;
+    height: auto;
+}
+
+#new-thread-creator-table td {
+    padding: 0;
+    text-align: left;
+}
+
+#new-thread-creator-table td textarea {
+    padding: 0;
+    box-sizing: border-box;
+    width: 100%;
+    min-width: 300px;
+    min-height: 80px;
+    height: 100%;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-bottom: -3px;
+}
+
+.btn {
+    border: 1px solid darkblue;
+    background-color: rgb(153, 172, 255);
+    font-weight: bold;
+    padding: 0 3px;
+}
+
+.no-bold {
+    font-weight: normal!important;
+}
+
+#action-buttons {
+    padding: 5px 0!important;
+}
+
+#action-buttons a {
+    font-weight: bold;
+    padding: 4px!important;
+}

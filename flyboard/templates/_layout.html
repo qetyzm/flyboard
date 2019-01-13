@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        {% block head %}
+        <link rel="stylesheet" href="/static/css/flytheme.css"/>
+        <link rel="stylesheet" href="/static/css/glyphicons.css"/>
+        <script type="text/javascript" src="/static/js/jquery-3.3.1.js"></script>
+        <script type="text/javascript" src="/static/js/jquery-fieldselection.js"></script>
+        <title>{% block title %}{% endblock %} - {{ g.site_name }}</title>
+        {% endblock %}
+    </head>
+    <body>
+        <div id="topbar">
+            <span class="board-list">
+                [<a href="#">a</a>
+                /
+                <a href="#">b</a>
+                /
+                <a href="#">c</a>
+                /
+                <a href="#">d</a>
+                /
+                <a href="#">e</a>]
+            </span>
+            <span class="edit-board-list">
+                [<a href="#">Edit</a>]
+            </span>
+            <span id="settings-side">
+                <a href="#" id="search-button" class="glyphicon glyphicon-search" title="Search"></a>
+                <a href="#" id="login-button" class="glyphicon glyphicon-user" title="Log in"></a>
+                <a href="#" id="settings-button" class="glyphicon glyphicon-cog" title="Settings"></a>
+                <a href="#" id="home-button" class="glyphicon glyphicon-home" title="Home"></a>
+            </span>
+        </div>
+        <div id="header">
+            <img id="banner" src="/static/assets/banners/default.png"/>
+            <div id="board-name" class="bold">/test/ - Test</div>
+            <div id="board-header">
+                <hr>
+                <div id="start-thread-box">
+                    <div id="start-thread-wrapper" class="bold">
+                        [<a href="#" id="start-thread-link" title="Show thread creator">Start a new thread</a>]
+                    </div>
+                    <div id="new-thread-creator" class="hidden">
+                        <form>
+                            <table id="new-thread-creator-table">
+                                <tr>
+                                    <th>Name</th>
+                                    <td><input type="text" id="name-input"/></td>
+                                </tr>
+                                <tr>
+                                    <th>Email</th>
+                                    <td><input type="email" id="email-input"/></td>
+                                </tr>
+                                <tr>
+                                    <th>Subject</th>
+                                    <td><input type="text" id="subject-input"/></td>
+                                </tr>
+                                <tr>
+                                    <th>Message</th>
+                                    <td><textarea type="text" rows="4" col="30" id="message-input"/></textarea></td>
+                                </tr>
+                                <tr>
+                                    <th>BBCode</th>
+                                    <td class="no-bold horizontal-buttons">
+                                        <a id="bold-btn" class="btn" href="#"><strong>B</strong></a>
+                                        <a id="italic-btn" class="btn" href="#"><em>I</em></a>
+                                        <a id="underline-btn" class="btn" href="#"><u>U</u></a>
+                                        <a id="code-btn" class="btn" href="#">code</a>
+                                        <a id="spoiler-btn" class="btn" href="#">spoiler</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>Embed</th>
+                                    <td><input type="text" id="embed-input"/></td>
+                                </tr>
+                                <tr>
+                                    <th>Password</th>
+                                    <td><input type="text" id="password-input"/></td>
+                                </tr>
+                                <tr>
+                                    <th>File</th>
+                                    <td><input type="file" id="file-input"/></td>
+                                </tr>
+                                <tr>
+                                    <th>File options</th>
+                                    <td>
+                                        <input type="checkbox" id="image-spoiler-checkbox"/>
+                                        <label for="image-spoiler-checkbox">Spoiler image</label>
+                                        <input type="checkbox" id="image-none-checkbox"/>
+                                        <label for="image-none-checkbox">No image</label>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>Actions</th>
+                                    <td id="action-buttons" class="horizontal-buttons">
+                                        <a id="send-btn" href="#">Send</a>
+                                        <a id="clear-btn" href="#">Clear</a>
+                                    </td>
+                                </tr>
+                            </table>
+                        </form>
+                    </div>
+                </div>
+                <p id="users-online-text">Users online: <span id="users-online-count" class="bold">1000</span></p>
+                <hr>
+            </div>
+        </div>
+        <hr>
+        <div id="content">
+
+        </div>
+        <hr>
+        <div id="footer">
+
+        </div>
+        <script type="text/javascript">
+            function makePassword() {
+                var text = "";
+                var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()-=_+[]{};':\",./<>?";
+
+                for (var i = 0; i < 16; i++)
+                    text += possible.charAt(Math.floor(Math.random() * possible.length));
+
+                return text;
+            }
+
+
+            function setCookie(cname, cvalue, exdays) {
+                var d = new Date();
+                d.setTime(d.getTime() + (exdays*24*60*60*1000));
+                var expires = "expires="+ d.toUTCString();
+                document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+            }
+
+            function getCookie(cname) {
+                var name = cname + "=";
+                var decodedCookie = decodeURIComponent(document.cookie);
+                var ca = decodedCookie.split(';');
+                for(var i = 0; i <ca.length; i++) {
+                    var c = ca[i];
+                    while (c.charAt(0) == ' ') {
+                    c = c.substring(1);
+                    }
+                    if (c.indexOf(name) == 0) {
+                    return c.substring(name.length, c.length);
+                    }
+                }
+                return "";
+            }
+
+            // Start new thread button action
+            $('#start-thread-link').click(function() {
+                $('#start-thread-wrapper').remove();
+                $('#new-thread-creator').removeClass('hidden');
+            });
+
+            // Add BBCode tags
+            function addTag(tag) {
+                let selection = $('#message-input').getSelection();
+                let text = $('#message-input').val();
+
+                $('#message-input').val(
+                    text.slice(0, selection.start) + "[" + tag + "]" + selection.text + "[/" + tag + "]" + text.slice(selection.end)
+                );
+            }
+
+            // BBCode buttons
+            $('#bold-btn').click(function() {
+                addTag("b");
+            });
+            $('#italic-btn').click(function() {
+                addTag("i");
+            });
+            $('#underline-btn').click(function() {
+                addTag("u");
+            });
+            $('#code-btn').click(function() {
+                addTag("code");
+            });
+            $('#spoiler-btn').click(function() {
+                addTag("spoiler");
+            });
+
+            // Clear button
+            $('#clear-btn').click(function() {
+                $('#name-input').val("");
+                $('#email-input').val("");
+                $('#subject-input').val("");
+                $('#message-input').val("");
+                $('#embed-input').val("");
+            });
+
+            // Save password on change
+            $('#password-input').change(function() {
+                let password = $('#password-input').val();
+                setCookie("user_password", password, 1000);
+            });
+
+            // Generate password cookie if none
+            $('#password-input').val(function() {
+                let passwordCookie = getCookie("user_password");
+                
+                if (passwordCookie === "") {
+                    let password = makePassword();
+                    setCookie("user_password", password, 1000);
+                    return password;
+                } else {
+                    return passwordCookie;
+                }
+            });
+        </script>
+    </body>
+</html>
