@@ -91,6 +91,12 @@
                                 </tr>
                             </table>
                         </form>
+                        <div id="post-info-box">
+                            <b>Supported file types</b>: PNG, JPEG, GIF, WEBM, MP4<br>
+                            <b>Maximum file size</b>: 15.00M<br>
+                            <b>Current unique posters</b>: 4356<br>
+                            <b>Messages posted within last minute</b>: 127
+                        </div>
                     </div>
                 </div>
                 <p id="users-online-text">Users online: <span id="users-online-count" class="bold">1000</span></p>
@@ -220,7 +226,7 @@
             });
 
             $('#remove-image-btn').click(function() {
-                $("#image-buttons").prev().remove();
+                $('#image-buttons').prev().remove();
                 fileCounter--;
                 loadButtons();
             });
@@ -231,7 +237,7 @@
                 $('#add-image-btn').click();
             }
 
-            $("#new-thread-creator").hide();
+            $('#new-thread-creator').hide();
         </script>
     </body>
 </html>
