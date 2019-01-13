@@ -5,6 +5,7 @@
         <link rel="stylesheet" href="/static/css/glyphicons.css"/>
         <script type="text/javascript" src="/static/js/jquery-3.3.1.js"></script>
         <script type="text/javascript" src="/static/js/jquery-fieldselection.js"></script>
+        <script type="text/javascript" src="/static/js/js.cookie.js"></script>
         <title>Test - FlyBoard</title>
     </head>
     <body>
@@ -83,7 +84,7 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <th>Actions</th>
+                                    <th>Action</th>
                                     <td id="action-buttons" class="horizontal-buttons">
                                         <a id="send-btn" href="#">Send</a>
                                     </td>
@@ -95,6 +96,7 @@
                 <p id="users-online-text">Users online: <span id="users-online-count" class="bold">1000</span></p>
                 <hr>
             </div>
+            <p id="announcement">The global annoucement.</p>
         </div>
         <hr>
         <div id="content">
@@ -111,7 +113,7 @@
 
             function makePassword() {
                 var text = "";
-                var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()-=_+[]{};':\",./<>?";
+                var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()-=_+[]{};':\",./<>?\\|";
 
                 for (var i = 0; i < 16; i++)
                     text += possible.charAt(Math.floor(Math.random() * possible.length));
@@ -119,33 +121,10 @@
                 return text;
             }
 
-            function setCookie(cname, cvalue, exdays) {
-                var d = new Date();
-                d.setTime(d.getTime() + (exdays*24*60*60*1000));
-                var expires = "expires="+ d.toUTCString();
-                document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
-            }
-
-            function getCookie(cname) {
-                var name = cname + "=";
-                var decodedCookie = decodeURIComponent(document.cookie);
-                var ca = decodedCookie.split(';');
-                for(var i = 0; i <ca.length; i++) {
-                    var c = ca[i];
-                    while (c.charAt(0) == ' ') {
-                    c = c.substring(1);
-                    }
-                    if (c.indexOf(name) == 0) {
-                    return c.substring(name.length, c.length);
-                    }
-                }
-                return "";
-            }
-
             // Start new thread button action
             $('#start-thread-link').click(function() {
                 $('#start-thread-wrapper').remove();
-                $('#new-thread-creator').removeClass('hidden');
+                $('#new-thread-creator').show();
             });
 
             // Add BBCode tags
@@ -187,16 +166,16 @@
             // Save password on change
             $('#password-input').change(function() {
                 let password = $('#password-input').val();
-                setCookie("user_password", password, 1000);
+                Cookies.set("user_password", password);
             });
 
             // Generate password cookie if none
             $('#password-input').val(function() {
-                let passwordCookie = getCookie("user_password");
+                let passwordCookie = Cookies.get("user_password");
                 
-                if (passwordCookie === "") {
+                if (!passwordCookie) {
                     let password = makePassword();
-                    setCookie("user_password", password, 1000);
+                    Cookies.set("user_password", password);
                     return password;
                 } else {
                     return passwordCookie;
@@ -204,17 +183,17 @@
             });
 
             function loadButtons() {
-                $('#image-btn-separator').addClass('hidden');
+                $('#image-btn-separator').hide();
                 if (fileCounter <= minThreadFileAmount) {
-                    $('#add-image-btn').removeClass('hidden');
-                    $('#remove-image-btn').addClass('hidden');
+                    $('#add-image-btn').show();
+                    $('#remove-image-btn').hide();
                 } else if (fileCounter >= maxThreadFileAmount) {
-                    $('#add-image-btn').addClass('hidden');
-                    $('#remove-image-btn').removeClass('hidden');
+                    $('#add-image-btn').hide();
+                    $('#remove-image-btn').show();
                 } else {
-                    $('#image-btn-separator').removeClass('hidden');
-                    $('#add-image-btn').removeClass('hidden');
-                    $('#remove-image-btn').removeClass('hidden');
+                    $('#image-btn-separator').show();
+                    $('#add-image-btn').show();
+                    $('#remove-image-btn').show();
                 }
             }
 
@@ -252,6 +231,7 @@
                 $('#add-image-btn').click();
             }
 
+            $("#new-thread-creator").hide();
         </script>
     </body>
 </html>

@@ -23,10 +23,6 @@ a:hover {
     color: red;
 }
 
-.hidden {
-    display: none;
-}
-
 hr {
     color: lightslategray; 
     border-style: solid; 
@@ -66,7 +62,7 @@ center {
     width: 100%;
 }
 
-.board-list {
+#board-list {
     float: left;
 }
 
@@ -157,4 +153,10 @@ center {
 #action-buttons a {
     font-weight: bold;
     padding: 4px!important;
+}
+
+#announcement {
+    color: red;
+    font-weight: bold;
+    font-size: 14px;
 }
