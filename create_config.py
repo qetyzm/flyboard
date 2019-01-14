@@ -26,7 +26,8 @@ config = {
     "THREADS_PER_PAGE": 2,
     "CSRF_ENABLED": True,
     "CSRF_SESSION_KEY": CSRF_SESSION_KEY,
-    "SECRET_KEY": SECRET_KEY
+    "SECRET_KEY": SECRET_KEY,
+    "LANGUAGE": "en_US"
 }
 
 CONFIG_PATH = os.path.join(BASE_DIR, 'config.json')
@@ -34,4 +35,5 @@ CONFIG_PATH = os.path.join(BASE_DIR, 'config.json')
 with open(CONFIG_PATH, 'w') as f:
     json.dump(config, f, indent=4)
 
+print(config)
 print("\nSaved config to: " + CONFIG_PATH)

@@ -14,16 +14,38 @@
             <span class="board-list">
             </span>
             <span id="settings-side">
-                <a href="#" id="thread-watcher" class="glyphicon glyphicon-eye-open" title="Thread Watcher"></a>
-                <a href="#" id="search-button" class="glyphicon glyphicon-search" title="Search"></a>
-                <a href="#" id="login-button" class="glyphicon glyphicon-user" title="Log in"></a>
-                <a href="#" id="settings-button" class="glyphicon glyphicon-cog" title="Settings"></a>
-                <a href="#" id="home-button" class="glyphicon glyphicon-home" title="Home"></a>
+                <a href="#" id="thread-watcher" class="glyphicon glyphicon-eye-open" onclick="return false;" title="Thread Watcher"></a>
+                <a href="#" id="search-button" class="glyphicon glyphicon-search" onclick="return false;" title="Search"></a>
+                <a href="#" id="login-button" class="glyphicon glyphicon-user" onclick="return false;" title="Log in"></a>
+                <a href="#" id="settings-button" class="glyphicon glyphicon-cog" onclick="return false;" title="Settings"></a>
+                <a href="#" id="settings-button" class="glyphicon glyphicon-wrench" onclick="return false;" title="Admin panel"></a>
+                <a href="{{ url_for('home') }}" id="home-button" class="glyphicon glyphicon-home" title="Home"></a>
             </span>
         </div>
         <div id="header">
-            <img id="banner" src="/static/assets/banners/{{ g.banner }}"/>
+            <img id="banner" src="/static/assets/banners/{{ g.banner }}">
             <div id="board-name" class="bold">{% block header %}{% endblock %}</div>
+            {% block board_header %}
+            {% endblock %}
+            <hr>
+            <p id="announcement">{{ g.global_announcement }}</p>
+        </div>
+        <hr>
+        {% block board_bar %}
+        {% endblock %}
+        <div id="content">
+            {% block content %}
+            {% endblock %}
+        </div>
+        <hr>
+        {% block bottombar %}
+        {% endblock %}
+        <div id="footer">
+            <p>All trademarks and copyrights on this page are owned by their respective parties. Images uploaded are the responsibility of the Poster. Comments are owned by the Poster.</p>
+            [<a href="{{ url_for('home') }}">Home</a>]
+            [<a href="#" onclick="return false;">FAQ</a>]
+            [<a href="#" onclick="return false;">Rules</a>]
+            [<a href="#" onclick="return false;">Legal</a>]
         </div>
     </body>
 </html>

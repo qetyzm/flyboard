@@ -116,16 +116,15 @@ center {
     font-size: 10px;
 }
 
-#new-thread-creator-table {
+#form-table {
     margin: 0 auto;
     padding: 0;
     font-size: 12px;
     border-spacing: 1px;
 }
 
-#new-thread-creator-table th {
+#form-table, #popular-threads-table th {
     width: 70px;
-    border: 1px darkblue solid;
     background-color: rgb(109, 136, 255);
     color: darkblue;
     text-align: left;
@@ -134,12 +133,46 @@ center {
     height: auto;
 }
 
-#new-thread-creator-table td {
+#popular-threads-table th {
+    border-bottom: 1px solid black;
+}
+
+#popular-threads-table {
+    border: 1px solid black;
+    min-height: 200px;
+    text-align: center;
+}
+
+#popular-threads-table thead {
+    padding: 0;
+    margin: 0;
+}
+
+#popular-threads-table th {
+    text-align: center;
+    width: 60%;
+    min-width: 500px;
+    margin: 0;
+}
+
+#popular-threads-table tbody {
+    display: table-row-grouptablblock;
+    background-color: snow;
+    border: 1px solid black;
+    border-collapse: separate;
+    margin-top: -3px;
+}
+
+#popular-threads-table td {
+    padding: 0;
+}
+
+#form-table td {
     padding: 0;
     text-align: left;
 }
 
-#new-thread-creator-table td textarea {
+#form-table td textarea {
     padding: 0;
     box-sizing: border-box;
     width: 100%;
@@ -303,3 +336,11 @@ blockquote {
     float: left;
 }
 */
+
+#popular-threads-table {
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+}

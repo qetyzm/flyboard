@@ -44,7 +44,7 @@
                     </div>
                     <div id="new-thread-creator" class="hidden">
                         <form>
-                            <table id="new-thread-creator-table">
+                            <table id="form-table">
                                 <tr>
                                     <th>Name</th>
                                     <td><input type="text" id="name-input"/></td>
@@ -104,7 +104,7 @@
                 <p id="users-online-text">Users online: <span id="users-online-count" class="bold">1000</span></p>
                 <hr>
             </div>
-            <p id="announcement">The global annoucement.</p>
+            <p id="announcement">{{ g.global_announcement }}</p>
         </div>
         <hr>
         <div class="board-bar">

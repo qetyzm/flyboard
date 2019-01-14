@@ -1,7 +1,7 @@
 import random
 
 class DicePlugin:
-    boards = ['b']
+    boards = ('b',)
     
     def process_message(self, message):
         if message.email != "#dice":

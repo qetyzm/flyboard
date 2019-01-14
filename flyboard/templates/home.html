@@ -1,3 +1,24 @@
 {% extends "_layout.html" %}
-{% block title %}Home{% endblock %}
-{% block header %}Home{% endblock %}
+{% block title %}{{ g.messages['home_name'] }}{% endblock %}
+{% block header %}{{ g.messages['home_name'] }}{% endblock %}
+{% block announcement %}
+{% endblock %}
+{% block content %}
+
+<table id="popular-threads-table" cellspacing="0">
+    <thead>
+        <tr>
+            <th colspan="4">{{ g.messages['popular_threads'] }}</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>(TO REPLACE)</td>
+            <td>(TO REPLACE)</td>
+            <td>(TO REPLACE)</td>
+            <td>(TO REPLACE)</td>
+        </tr>
+    </tbody>
+</table>
+
+{% endblock %}
