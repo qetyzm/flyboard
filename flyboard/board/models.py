@@ -5,7 +5,6 @@ class Board(Base):
     __tablename__ = 'board'
     uri = db.Column(db.String(64), nullable=False, unique=True)
     title = db.Column(db.String(96), nullable=False)
-    description = db.Column(db.String(128), nullable=False)
     min_files = db.Column(db.SmallInteger, nullable=False)
     max_files = db.Column(db.SmallInteger, nullable=False)
     file_required_for_post = db.Column(db.Boolean, nullable=False)

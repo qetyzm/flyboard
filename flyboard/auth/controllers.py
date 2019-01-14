@@ -11,3 +11,8 @@ auth_module = Blueprint('auth', __name__, url_prefix='/auth')
 @login_manager.user_loader
 def load_user(id):
     return User.query.get(int(id))
+
+
+@auth_module.route('/login', methods=['GET', 'POST'])
+def login():
+    return render_template('auth/login.html')

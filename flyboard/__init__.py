@@ -1,4 +1,5 @@
 import os
+import random
 
 from flask import Flask, render_template, g
 from flask_sqlalchemy import SQLAlchemy
@@ -26,10 +27,23 @@ class Base(db.Model):
 def before_request():
     g.site_name = app.config['SITE_NAME']
     g.user = current_user
+    g.banner = random_banner()
 
 @app.errorhandler(404)
 def not_found(error):
     return render_template('404.html'), 404
+
+def random_banner():
+    banners_path = os.path.join('flyboard', 'static', 'assets', 'banners')
+    files = []
+    for file in os.listdir(banners_path):
+        if file.endswith(".png") or file.endswith(".jpg") or file.endswith(".gif"):
+            files.append(file)
+    return random.choice(files)
+
+@app.route('/')
+def home():
+    return render_template('home.html', banner=random_banner())
 
 from flyboard.auth.controllers import auth_module
 from flyboard.board.controllers import board_module

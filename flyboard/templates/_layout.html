@@ -7,9 +7,23 @@
         <script type="text/javascript" src="/static/js/jquery-fieldselection.js"></script>
         <script type="text/javascript" src="/static/js/js.cookie.js"></script>
         <script type="text/javascript" src="/static/js/flyboard-board.js"></script>
-        <title>{% block title %}{% enblock %} - {g.site_name}</title>
+        <title>{% block title %}{% endblock %}{% if g.site_name %} - {{ g.site_name }}{% endif %}</title>
     </head>
     <body>
-        Test
+        <div id="topbar">
+            <span class="board-list">
+            </span>
+            <span id="settings-side">
+                <a href="#" id="thread-watcher" class="glyphicon glyphicon-eye-open" title="Thread Watcher"></a>
+                <a href="#" id="search-button" class="glyphicon glyphicon-search" title="Search"></a>
+                <a href="#" id="login-button" class="glyphicon glyphicon-user" title="Log in"></a>
+                <a href="#" id="settings-button" class="glyphicon glyphicon-cog" title="Settings"></a>
+                <a href="#" id="home-button" class="glyphicon glyphicon-home" title="Home"></a>
+            </span>
+        </div>
+        <div id="header">
+            <img id="banner" src="/static/assets/banners/{{ g.banner }}"/>
+            <div id="board-name" class="bold">{% block header %}{% endblock %}</div>
+        </div>
     </body>
 </html>
