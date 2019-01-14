@@ -40,6 +40,9 @@
                     <div id="start-thread-wrapper" class="bold">
                         [<a href="#" id="start-thread-link" title="Show thread creator">Start a new thread</a>]
                     </div>
+                    <div id="no-thread-wrapper" class="bold">
+                        [<a href="#" id="no-thread-link" title="Hide thread creator">Hide the form</a>]
+                    </div>
                     <div id="new-thread-creator" class="hidden">
                         <form>
                             <table id="new-thread-creator-table">
@@ -105,7 +108,7 @@
             <p id="announcement">The global annoucement.</p>
         </div>
         <hr>
-        <div id="board-bar">
+        <div class="board-bar">
             <span id="board-search">
                 <input type="text" id="search-input" placeholder="Search posts..."/>
                 <button type="submit" id="search-ops-btn">Search all</button>
@@ -118,14 +121,32 @@
         <hr>
         <div id="content">
             <div class="board">
-                <div id="postno-8" class="post">
-                    <div class="post-file-info">File: <a href="#">default.png</a> (2 KB, 300x100)</div>
-                    <div class="post-file">
-                        <img src="/static/assets/banners/default.png" />
+                <div id="p8" class="post">
+                    <div class="post-file-block">
+                        <div class="post-file-info">File: <a href="#">default.png</a> (2 KB, 300x100)</div>
+                        <div class="post-file">
+                            <img src="/static/assets/banners/default.png" />
+                        </div>
+                    </div>
+                    <div class="post-file-block">
+                        <div class="post-file-info">File: <a href="#">default.png</a> (2 KB, 300x100)</div>
+                        <div class="post-file">
+                            <img src="/static/assets/banners/default.png" />
+                        </div>
+                    </div>
+                    <div class="post-file-block">
+                        <div class="post-file-info">File: <a href="#">default.png</a> (2 KB, 300x100)</div>
+                        <div class="post-file">
+                            <img src="/static/assets/banners/default.png" />
+                        </div>
                     </div>
                     <span class="post-container">
                         <span class="post-poster-info">
-                            <input type="checkbox"><span class="post-poster-block"><span class="post-poster-name">Anonymous</span></span> <span class="post-time-posted">10/27/14(Mon)20:13:25</span> No.<a class="post-id" href="#postno-8">8</a> [<a href="#">Reply</a>]
+                            <a href="#" onclick="return false;" class="glyphicon glyphicon-menu-hamburger post-settings-btn"></a><span class="post-poster-block"><span class="post-poster-name">Anonymous</span></span>
+                            <span class="post-time-posted">10/27/14(Mon)20:13:25</span> 
+                            No.<a class="post-id" href="#postno-8">8</a>
+                            [<a href="#">Reply</a>]
+                            [<a href="#">-</a>]
                         </span>
                         <blockquote class="post-content">
                             <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse pretium venenatis turpis, et sollicitudin eros tristique at. Mauris condimentum neque eu elit egestas, ac consectetur ligula faucibus. Suspendisse malesuada est sit amet interdum mollis. Nunc fringilla, diam eu tincidunt eleifend, turpis enim dictum metus, non fringilla urna erat in nisl. Vivamus posuere porttitor lorem vitae pellentesque. Maecenas sollicitudin tortor et enim rutrum semper. Sed non risus nec ex tempus scelerisque. Vestibulum sit amet erat ante.</span>
@@ -151,10 +172,10 @@
                     <div class="reply-arrows">
                         &gt;&gt;
                     </div>
-                    <div id="postno-9" class="post post-reply">
+                    <div id="p9" class="post post-reply">
                         <span class="post-container">
                             <span class="post-poster-info">
-                                <input type="checkbox"><span class="post-poster-block"><span class="post-poster-name">Anonymous</span></span> <span class="post-time-posted">10/27/14(Mon)20:35:36</span> No.<a class="post-id" href="#postno-9">9</a>
+                                <a href="#" onclick="return false;" class="glyphicon glyphicon-menu-hamburger post-settings-btn"></a><span class="post-poster-block"><span class="post-poster-name">Anonymous</span></span> <span class="post-time-posted">10/27/14(Mon)20:35:36</span> No.<a class="post-id" href="#postno-9">9</a>
                             </span>
                             <blockquote class="post-content">
                                 <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse pretium venenatis turpis, et sollicitudin eros tristique at. Mauris condimentum neque eu elit egestas, ac consectetur ligula faucibus. Suspendisse malesuada est sit amet interdum mollis. Nunc fringilla, diam eu tincidunt eleifend, turpis enim dictum metus, non fringilla urna erat in nisl. Vivamus posuere porttitor lorem vitae pellentesque. Maecenas sollicitudin tortor et enim rutrum semper. Sed non risus nec ex tempus scelerisque. Vestibulum sit amet erat ante.</span>
@@ -181,10 +202,10 @@
                     <div class="reply-arrows">
                         &gt;&gt;
                     </div>
-                    <div id="postno-9" class="post post-reply">
+                    <div id="p9" class="post post-reply">
                         <span class="post-container">
                             <span class="post-poster-info">
-                                <input type="checkbox"><span class="post-poster-block"><span class="post-poster-name">Anonymous</span></span> <span class="post-time-posted">10/27/14(Mon)20:35:36</span> No.<a class="post-id" href="#postno-9">9</a>
+                                <a href="#" onclick="return false;" class="glyphicon glyphicon-menu-hamburger post-settings-btn"></a><span class="post-poster-block"><span class="post-poster-name">Anonymous</span></span> <span class="post-time-posted">10/27/14(Mon)20:35:36</span> No.<a class="post-id" href="#postno-9">9</a>
                             </span>
                             <blockquote class="post-content">
                                 <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse pretium venenatis turpis, et sollicitudin eros tristique at. Mauris condimentum neque eu elit egestas, ac consectetur ligula faucibus. Suspendisse malesuada est sit amet interdum mollis. Nunc fringilla, diam eu tincidunt eleifend, turpis enim dictum metus, non fringilla urna erat in nisl. Vivamus posuere porttitor lorem vitae pellentesque. Maecenas sollicitudin tortor et enim rutrum semper. Sed non risus nec ex tempus scelerisque. Vestibulum sit amet erat ante.</span>
@@ -208,14 +229,16 @@
                     </div>
                 </div>
                 <hr>
-                <div id="postno-8" class="post">
-                    <div class="post-file-info">File: <a href="#">default.png</a> (2 KB, 300x100)</div>
-                    <div class="post-file">
-                        <img src="/static/assets/banners/default.png" />
+                <div id="p8" class="post">
+                    <div class="post-file-block">
+                        <div class="post-file-info">File: <a href="#">default.png</a> (2 KB, 300x100)</div>
+                        <div class="post-file">
+                            <img src="/static/assets/banners/default.png" />
+                        </div>
                     </div>
                     <span class="post-container">
                         <span class="post-poster-info">
-                            <input type="checkbox"><span class="post-poster-block"><span class="post-poster-name">Anonymous</span></span> <span class="post-time-posted">10/27/14(Mon)20:13:25</span> No.<a class="post-id" href="#postno-8">8</a> [<a href="#">Reply</a>]
+                            <a href="#" onclick="return false;" class="glyphicon glyphicon-menu-hamburger post-settings-btn"></a><span class="post-poster-block"><span class="post-poster-name">Anonymous</span></span> <span class="post-time-posted">10/27/14(Mon)20:13:25</span> No.<a class="post-id" href="#postno-8">8</a> [<a href="#">Reply</a>]
                         </span>
                         <blockquote class="post-content">
                             <span>Hey, what's up?</span>
@@ -226,10 +249,10 @@
                     <div class="reply-arrows">
                         &gt;&gt;
                     </div>
-                    <div id="postno-9" class="post post-reply">
+                    <div id="p15" class="post post-reply">
                         <span class="post-container">
                             <span class="post-poster-info">
-                                <input type="checkbox"><span class="post-poster-block"><span class="post-poster-name">Anonymous</span></span> <span class="post-time-posted">10/27/14(Mon)20:35:36</span> No.<a class="post-id" href="#postno-9">9</a>
+                                <a href="#" onclick="return false;" class="glyphicon glyphicon-menu-hamburger post-settings-btn"></a><span class="post-poster-block"><span class="post-poster-name">Anonymous</span></span> <span class="post-time-posted">10/27/14(Mon)20:35:36</span> No.<a class="post-id" href="#postno-9">9</a>
                             </span>
                             <blockquote class="post-content">
                                 <span>I'm fine, thanks.</span>
@@ -241,10 +264,10 @@
                     <div class="reply-arrows">
                         &gt;&gt;
                     </div>
-                    <div id="postno-9" class="post post-reply">
+                    <div id="p9" class="post post-reply">
                         <span class="post-container">
                             <span class="post-poster-info">
-                                <input type="checkbox"><span class="post-poster-block"><span class="post-poster-name">Anonymous</span></span> <span class="post-time-posted">10/27/14(Mon)20:35:36</span> No.<a class="post-id" href="#postno-9">9</a>
+                                <a href="#" onclick="return false;" class="glyphicon glyphicon-menu-hamburger post-settings-btn"></a><span class="post-poster-block"><span class="post-poster-name">Anonymous</span></span> <span class="post-time-posted">10/27/14(Mon)20:35:36</span> No.<a class="post-id" href="#postno-9">9</a>
                             </span>
                             <blockquote class="post-content">
                                 <a href="/board/test/thread/10#p15" class="quotelink">&gt;&gt;15</a>
@@ -254,12 +277,71 @@
                         </span>
                     </div>
                 </div>
+                <div class="full-reply">
+                    <div class="reply-arrows">
+                        &gt;&gt;
+                    </div>
+                    <div id="p15" class="post post-reply">
+                        <span class="post-container">
+                            <span class="post-poster-info">
+                                <a href="#" onclick="return false;" class="glyphicon glyphicon-menu-hamburger post-settings-btn"></a><span class="post-poster-block"><span class="post-poster-name">Anonymous</span></span> <span class="post-time-posted">10/27/14(Mon)20:35:36</span> No.<a class="post-id" href="#postno-9">9</a>
+                            </span>
+                            <blockquote class="post-content">
+                                <span>I'm fine too.</span>
+                            </blockquote>
+                        </span>
+                    </div>
+                </div>
             </div>
-            </div>
+        <hr>
+            <span id="page-list">
+                <span id="all-pages">[<a href="#" onclick="return false;">All</a>]</span>
+                [<a href="#" onclick="return false;">1</a>]
+                [<a href="#" onclick="return false;">2</a>]
+                [<a href="#" onclick="return false;">3</a>]
+                [<a href="#" onclick="return false;">4</a>]
+                [<a href="#" onclick="return false;">5</a>]
+                [<a href="#" onclick="return false;">6</a>]
+                [<a href="#" onclick="return false;">7</a>]
+                [<a href="#" onclick="return false;">8</a>]
+                [<a href="#" onclick="return false;">9</a>]
+                [<a href="#" onclick="return false;">10</a>]
+                <span class="vl"></span>
+                <button id="next-page-btn">Next</button>
+                <span class="vl"></span>
+                [<a href="#" onclick="return false;">Catalog</a>]
+                [<a href="#" onclick="return false;">Archive</a>]
+            </span>
         </div>
         <hr>
+        <div id="bottombar">
+            <span class="board-list">
+                [<a href="#">a</a>
+                /
+                <a href="#">b</a>
+                /
+                <a href="#">c</a>
+                /
+                <a href="#">d</a>
+                /
+                <a href="#">e</a>]
+            </span>
+            <span class="edit-board-list">
+                [<a href="#">Edit</a>]
+            </span>
+            <span id="settings-side">
+                <a href="#" id="search-button" class="glyphicon glyphicon-search" title="Search"></a>
+                <a href="#" id="login-button" class="glyphicon glyphicon-user" title="Log in"></a>
+                <a href="#" id="settings-button" class="glyphicon glyphicon-cog" title="Settings"></a>
+                <a href="#" id="home-button" class="glyphicon glyphicon-home" title="Home"></a>
+            </span>
+        </div>
         <div id="footer">
-            All trademarks and copyrights on this page are owned by their respective parties. Images uploaded are the responsibility of the Poster. Comments are owned by the Poster.
+            <p>All trademarks and copyrights on this page are owned by their respective parties. Images uploaded are the responsibility of the Poster. Comments are owned by the Poster.</p>
+            [<a href="#" onclick="return false;">Home</a>]
+            [<a href="#" onclick="return false;">FAQ</a>]
+            [<a href="#" onclick="return false;">Rules</a>]
+            [<a href="#" onclick="return false;">Legal</a>]
         </div>
         <script type="text/javascript">
             let minThreadFileAmount = 0;
@@ -278,8 +360,15 @@
 
             // Start new thread button action
             $('#start-thread-link').click(function() {
-                $('#start-thread-wrapper').remove();
+                $('#start-thread-wrapper').hide();
+                $('#no-thread-wrapper').show();
                 $('#new-thread-creator').show();
+            });
+
+            $('#no-thread-link').click(function() {
+                $('#start-thread-wrapper').show();
+                $('#no-thread-wrapper').hide();
+                $('#new-thread-creator').hide();
             });
 
             // Add BBCode tags
@@ -385,6 +474,7 @@
             }
 
             $('#new-thread-creator').hide();
+            $('#no-thread-wrapper').hide();
         </script>
     </body>
 </html>

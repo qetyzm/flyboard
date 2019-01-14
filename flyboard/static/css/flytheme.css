@@ -34,6 +34,12 @@ hr {
     align-content: center;
 }
 
+.vl {
+    border-left: 1px solid rgb(156, 156, 156);
+    height: auto;
+    margin: 5px;
+}
+
 center {
     text-align: center;
 }
@@ -43,6 +49,12 @@ center {
     width: 100%;
     position: fixed;
     background-color: rgba(215, 219, 242, 0.85);
+    padding: 5px;
+    color: rgba(82, 82, 82);
+}
+
+#bottombar {
+    height: 16px;
     padding: 5px;
     color: rgba(82, 82, 82);
 }
@@ -96,7 +108,7 @@ center {
     border: solid black 1px;
 }
 
-#start-thread-wrapper {
+#start-thread-wrapper, #no-thread-wrapper {
     font-size: 26px;
 }
 
@@ -173,14 +185,20 @@ center {
     margin-right: auto;
 }
 
-#board-search {
+#board-search, #page-list {
     float: left;
     margin: 0 5px;
+    font-size: 14px;
+}
+
+#page-list {
+    padding: 5px;
 }
 
 #board-archive {
     float: right;
     margin: 0 5px;
+    font-size: 14px;
 }
 
 .board {
@@ -229,7 +247,7 @@ blockquote {
     margin-right: 30px;
 }
 
-.post-reply {
+.post-reply, #page-list {
     background-color: #d6daf0;
     border: 1px solid #b7c5d9;
     border-left: none;
@@ -259,4 +277,32 @@ blockquote {
 .quotelink, .quotelink:hover {
     color: red;
     text-decoration: underline;
+}
+
+.post-selected {
+    border: 2px red dashed;
+}
+
+.post-settings-btn {
+    margin-right: 3px;
+}
+
+#all-pages {
+    margin-right: 3px;
+}
+
+/* horizontal */
+/*
+.post-file-block {
+    float: left;
+    clear: both;
+}
+*/
+
+/* vertical */
+.post-file-block {
+    float: left;
+}
+.post-container {
+    float: left;
 }
