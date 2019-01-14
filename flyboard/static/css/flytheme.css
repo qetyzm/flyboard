@@ -1,6 +1,6 @@
 html {
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 12px;
+    font-size: 14px;
 }
 
 body {
@@ -292,14 +292,14 @@ blockquote {
 }
 
 /* horizontal */
-/*
 .post-file-block {
     float: left;
     clear: both;
 }
-*/
 
 /* vertical */
+/*
 .post-file-block {
     float: left;
 }
+*/

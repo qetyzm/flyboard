@@ -13,9 +13,11 @@ print("== CREATING CONFIG FILE ==")
 SITE_NAME = input("Site name: ")
 SECRET_KEY = input("Secret key: ")
 CSRF_SESSION_KEY = input("CSRF session key: ")
+RECAPTCHA_API_KEY = input("ReCatpcha API key (don't enter anything if you don't want reCaptcha): ")
 
 config = {
     "SITE_NAME": SITE_NAME,
+    "RECAPTCHA_API_KEY": RECAPTCHA_API_KEY,
     "DEBUG": True,
     "SQLALCHEMY_DATABASE_URI": DATABASE_URI,
     "SQLALCHEMY_TRACK_MODIFICATIONS": True,
