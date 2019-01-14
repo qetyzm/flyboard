@@ -25,7 +25,7 @@ a:hover {
 }
 
 hr {
-    color: lightslategray; 
+    color: rgb(156, 156, 156); 
     border-style: solid; 
     border-width: 0.5px; 
     margin: 5px;
@@ -42,9 +42,9 @@ center {
     height: 16px;
     width: 100%;
     position: fixed;
-    background-color: #d7dbf2;
+    background-color: rgba(215, 219, 242, 0.85);
     padding: 5px;
-    color: darkslategrey;
+    color: rgba(82, 82, 82);
 }
 
 #header {
@@ -58,8 +58,10 @@ center {
 
 #footer {
     flex-shrink: 0;
-    height: 80px;
-    width: 100%;
+    margin: auto;
+    text-align: center;
+    vertical-align: middle;
+    padding: 10px;
 }
 
 #board-list {
@@ -84,8 +86,8 @@ center {
 }
 
 #board-name {
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-size: 30px;
+    font-family: Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 28px;
     color: brown;
     font-weight: bold;
 }
@@ -106,6 +108,7 @@ center {
     margin: 0 auto;
     padding: 0;
     font-size: 12px;
+    border-spacing: 1px;
 }
 
 #new-thread-creator-table th {
@@ -148,7 +151,6 @@ center {
 
 #action-buttons {
     padding: 5px 0!important;
-    margin: 10px 0;
 }
 
 #action-buttons a {
@@ -169,4 +171,92 @@ center {
     width: 250px;
     margin-left: auto;
     margin-right: auto;
+}
+
+#board-search {
+    float: left;
+    margin: 0 5px;
+}
+
+#board-archive {
+    float: right;
+    margin: 0 5px;
+}
+
+.board {
+    margin: 10px;
+}
+
+.post-file img {
+    max-width: 300px;
+    max-height: 300px;
+    margin-right: 10px;
+}
+
+.post {
+    font-size: 14px;
+    padding: 5px;
+}
+
+.post-file-info a {
+    text-decoration: underline;
+}
+
+.post-file {
+    float: left;
+}
+
+.post-container {
+    display: inline;
+}
+
+blockquote>span.quote {
+    color: #789922;
+}
+
+blockquote {
+    padding: 5px;
+}
+
+.post-poster-name {
+    font-weight: bold;
+    color: #117743;
+}
+
+.post-content {
+    margin: 5px;
+    margin-left: 30px;
+    margin-right: 30px;
+}
+
+.post-reply {
+    background-color: #d6daf0;
+    border: 1px solid #b7c5d9;
+    border-left: none;
+    border-top: none;
+    float: left;
+    margin-bottom: 5px;
+    max-width: 99%;
+    max-width: calc(100% - 2.17em);
+}
+
+.reply-arrows {
+    float: left;
+    color: rgb(192, 192, 192);
+    font-size: 14px;
+    margin-right: 3px;
+}
+
+.board>hr {
+    clear: both;
+    margin-bottom: 20px;
+}
+
+.full-reply {
+    display: table;
+}
+
+.quotelink, .quotelink:hover {
+    color: red;
+    text-decoration: underline;
 }

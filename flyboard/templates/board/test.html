@@ -85,8 +85,8 @@
                                 </tr>
                                 <tr>
                                     <th>Action</th>
-                                    <td id="action-buttons" class="horizontal-buttons">
-                                        <a id="send-btn" href="#">Send</a>
+                                    <td>
+                                        <button type="submit" id="send-btn">Send</button>
                                     </td>
                                 </tr>
                             </table>
@@ -105,12 +105,161 @@
             <p id="announcement">The global annoucement.</p>
         </div>
         <hr>
+        <div id="board-bar">
+            <span id="board-search">
+                <input type="text" id="search-input" placeholder="Search posts..."/>
+                <button type="submit" id="search-ops-btn">Search all</button>
+                <button type="submit" id="search-ops-btn">Search OPs</button>
+            </span>
+            <span id="board-archive">
+                [<a href="#">Archive</a>]
+            </span>
+        </div>
+        <hr>
         <div id="content">
-
+            <div class="board">
+                <div id="postno-8" class="post">
+                    <div class="post-file-info">File: <a href="#">default.png</a> (2 KB, 300x100)</div>
+                    <div class="post-file">
+                        <img src="/static/assets/banners/default.png" />
+                    </div>
+                    <span class="post-container">
+                        <span class="post-poster-info">
+                            <input type="checkbox"><span class="post-poster-block"><span class="post-poster-name">Anonymous</span></span> <span class="post-time-posted">10/27/14(Mon)20:13:25</span> No.<a class="post-id" href="#postno-8">8</a> [<a href="#">Reply</a>]
+                        </span>
+                        <blockquote class="post-content">
+                            <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse pretium venenatis turpis, et sollicitudin eros tristique at. Mauris condimentum neque eu elit egestas, ac consectetur ligula faucibus. Suspendisse malesuada est sit amet interdum mollis. Nunc fringilla, diam eu tincidunt eleifend, turpis enim dictum metus, non fringilla urna erat in nisl. Vivamus posuere porttitor lorem vitae pellentesque. Maecenas sollicitudin tortor et enim rutrum semper. Sed non risus nec ex tempus scelerisque. Vestibulum sit amet erat ante.</span>
+                            <br>
+                            <br>
+                            <span class="quote">&gt;Curabitur vel diam mauris. Proin nec quam maximus, porta sapien eget, ultrices metus. Mauris vitae massa et quam semper lacinia. Cras eu mattis turpis, lobortis fringilla dui. Nunc dapibus vehicula dui ut dictum. Phasellus fringilla tempor sagittis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Mauris finibus rutrum lectus eu laoreet. Fusce vehicula non eros at molestie.</span>
+                            <br>
+                            <br>
+                            <span>Sed finibus nulla vitae nulla placerat tristique. Suspendisse placerat, erat vitae convallis aliquam, est libero elementum turpis, id pellentesque erat magna in felis. Nunc et dolor euismod augue vehicula bibendum. Etiam dictum mi vel ante iaculis blandit. Ut sit amet facilisis sem. Nulla neque augue, dictum vel pharetra eu, varius eu lectus. Morbi sodales sagittis nisi, quis mollis nibh congue id. Nulla semper lacinia dignissim. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Sed id nibh ac nisl elementum feugiat in semper neque. In malesuada, sapien et rhoncus pretium, turpis est fringilla elit, non imperdiet odio dolor nec nibh. Integer molestie semper nisi, a posuere urna vestibulum sit amet.</span>
+                            <br>
+                            <br>
+                            <span class="quote">&gt;Ut imperdiet nulla eget elit dignissim congue. In sed sem lobortis odio euismod euismod id et nisi. Duis ut quam in dolor ornare mattis. Donec accumsan dui a dolor aliquam fermentum. Nulla in vulputate eros. Cras interdum eros et turpis ornare, id luctus odio ullamcorper. Donec tempor magna ac egestas vehicula. Nam fermentum, augue eget lobortis faucibus, nulla augue condimentum leo, et dignissim lorem lacus auctor enim. Ut ut mi non turpis facilisis consectetur quis eget turpis. Ut eu tortor quam. Aenean mattis quam semper nisi scelerisque eleifend. Praesent vitae condimentum velit. Aliquam erat volutpat. Nulla sit amet eleifend sem. In augue ex, consectetur ut auctor et, ullamcorper in ex.</span>
+                            <br>
+                            <br>
+                            <span>Nullam quis neque eu velit vehicula fermentum. Aenean molestie ac ex eget porta. Suspendisse ac sapien mattis, hendrerit metus posuere, ornare mauris. Pellentesque dictum feugiat nibh. Donec et pulvinar ante, vel tempus turpis. Nulla quis libero ut quam rhoncus ultrices. Sed rutrum mi justo, ut porttitor felis mattis sed. Duis mauris nulla, vulputate ut tempor eu, sagittis vel massa. Aliquam pellentesque metus vel elit placerat molestie. Duis et porttitor nunc. Pellentesque vel turpis non ipsum faucibus ultrices vitae quis ante. Nam sed pulvinar neque. Maecenas velit dolor, aliquet sit amet eros sit amet, placerat porta felis.</span>
+                            <br>
+                            <br>
+                            <span>Maecenas venenatis neque at erat scelerisque sodales. Donec porttitor rhoncus mauris, id faucibus erat varius in. Morbi gravida vel nisl vitae vestibulum. Aenean fringilla urna mauris, a porta diam posuere in. Mauris a nisl egestas, dignissim urna sed, tristique turpis. Fusce et efficitur neque. Nam vestibulum dolor eu orci rutrum sollicitudin. In non dictum neque. Sed faucibus nisl tincidunt ipsum pellentesque tristique. Nunc ac dui dui. Donec tempor lorem id lacus eleifend, in viverra odio facilisis. Sed semper erat sapien, quis mattis purus aliquet eget. Integer rutrum lacus id lectus interdum, et vehicula sem pellentesque. Pellentesque ultrices vel ipsum ut auctor. Fusce erat enim, dictum quis bibendum a, ullamcorper sit amet leo. Quisque imperdiet dignissim diam, porttitor vulputate leo.</span>
+                        </blockquote>
+                    </span>
+                </div>
+                <div class="full-reply">
+                    <div class="reply-arrows">
+                        &gt;&gt;
+                    </div>
+                    <div id="postno-9" class="post post-reply">
+                        <span class="post-container">
+                            <span class="post-poster-info">
+                                <input type="checkbox"><span class="post-poster-block"><span class="post-poster-name">Anonymous</span></span> <span class="post-time-posted">10/27/14(Mon)20:35:36</span> No.<a class="post-id" href="#postno-9">9</a>
+                            </span>
+                            <blockquote class="post-content">
+                                <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse pretium venenatis turpis, et sollicitudin eros tristique at. Mauris condimentum neque eu elit egestas, ac consectetur ligula faucibus. Suspendisse malesuada est sit amet interdum mollis. Nunc fringilla, diam eu tincidunt eleifend, turpis enim dictum metus, non fringilla urna erat in nisl. Vivamus posuere porttitor lorem vitae pellentesque. Maecenas sollicitudin tortor et enim rutrum semper. Sed non risus nec ex tempus scelerisque. Vestibulum sit amet erat ante.</span>
+                                <br>
+                                <br>
+                                <span class="quote">&gt;Curabitur vel diam mauris. Proin nec quam maximus, porta sapien eget, ultrices metus. Mauris vitae massa et quam semper lacinia. Cras eu mattis turpis, lobortis fringilla dui. Nunc dapibus vehicula dui ut dictum. Phasellus fringilla tempor sagittis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Mauris finibus rutrum lectus eu laoreet. Fusce vehicula non eros at molestie.</span>
+                                <br>
+                                <br>
+                                <span>Sed finibus nulla vitae nulla placerat tristique. Suspendisse placerat, erat vitae convallis aliquam, est libero elementum turpis, id pellentesque erat magna in felis. Nunc et dolor euismod augue vehicula bibendum. Etiam dictum mi vel ante iaculis blandit. Ut sit amet facilisis sem. Nulla neque augue, dictum vel pharetra eu, varius eu lectus. Morbi sodales sagittis nisi, quis mollis nibh congue id. Nulla semper lacinia dignissim. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Sed id nibh ac nisl elementum feugiat in semper neque. In malesuada, sapien et rhoncus pretium, turpis est fringilla elit, non imperdiet odio dolor nec nibh. Integer molestie semper nisi, a posuere urna vestibulum sit amet.</span>
+                                <br>
+                                <br>
+                                <span class="quote">&gt;Ut imperdiet nulla eget elit dignissim congue. In sed sem lobortis odio euismod euismod id et nisi. Duis ut quam in dolor ornare mattis. Donec accumsan dui a dolor aliquam fermentum. Nulla in vulputate eros. Cras interdum eros et turpis ornare, id luctus odio ullamcorper. Donec tempor magna ac egestas vehicula. Nam fermentum, augue eget lobortis faucibus, nulla augue condimentum leo, et dignissim lorem lacus auctor enim. Ut ut mi non turpis facilisis consectetur quis eget turpis. Ut eu tortor quam. Aenean mattis quam semper nisi scelerisque eleifend. Praesent vitae condimentum velit. Aliquam erat volutpat. Nulla sit amet eleifend sem. In augue ex, consectetur ut auctor et, ullamcorper in ex.</span>
+                                <br>
+                                <br>
+                                <span>Nullam quis neque eu velit vehicula fermentum. Aenean molestie ac ex eget porta. Suspendisse ac sapien mattis, hendrerit metus posuere, ornare mauris. Pellentesque dictum feugiat nibh. Donec et pulvinar ante, vel tempus turpis. Nulla quis libero ut quam rhoncus ultrices. Sed rutrum mi justo, ut porttitor felis mattis sed. Duis mauris nulla, vulputate ut tempor eu, sagittis vel massa. Aliquam pellentesque metus vel elit placerat molestie. Duis et porttitor nunc. Pellentesque vel turpis non ipsum faucibus ultrices vitae quis ante. Nam sed pulvinar neque. Maecenas velit dolor, aliquet sit amet eros sit amet, placerat porta felis.</span>
+                                <br>
+                                <br>
+                                <span>Maecenas venenatis neque at erat scelerisque sodales. Donec porttitor rhoncus mauris, id faucibus erat varius in. Morbi gravida vel nisl vitae vestibulum. Aenean fringilla urna mauris, a porta diam posuere in. Mauris a nisl egestas, dignissim urna sed, tristique turpis. Fusce et efficitur neque. Nam vestibulum dolor eu orci rutrum sollicitudin. In non dictum neque. Sed faucibus nisl tincidunt ipsum pellentesque tristique. Nunc ac dui dui. Donec tempor lorem id lacus eleifend, in viverra odio facilisis. Sed semper erat sapien, quis mattis purus aliquet eget. Integer rutrum lacus id lectus interdum, et vehicula sem pellentesque. Pellentesque ultrices vel ipsum ut auctor. Fusce erat enim, dictum quis bibendum a, ullamcorper sit amet leo. Quisque imperdiet dignissim diam, porttitor vulputate leo.</span>
+                            </blockquote>
+                        </span>
+                    </div>
+                </div>
+                <div class="full-reply">
+                    <div class="reply-arrows">
+                        &gt;&gt;
+                    </div>
+                    <div id="postno-9" class="post post-reply">
+                        <span class="post-container">
+                            <span class="post-poster-info">
+                                <input type="checkbox"><span class="post-poster-block"><span class="post-poster-name">Anonymous</span></span> <span class="post-time-posted">10/27/14(Mon)20:35:36</span> No.<a class="post-id" href="#postno-9">9</a>
+                            </span>
+                            <blockquote class="post-content">
+                                <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse pretium venenatis turpis, et sollicitudin eros tristique at. Mauris condimentum neque eu elit egestas, ac consectetur ligula faucibus. Suspendisse malesuada est sit amet interdum mollis. Nunc fringilla, diam eu tincidunt eleifend, turpis enim dictum metus, non fringilla urna erat in nisl. Vivamus posuere porttitor lorem vitae pellentesque. Maecenas sollicitudin tortor et enim rutrum semper. Sed non risus nec ex tempus scelerisque. Vestibulum sit amet erat ante.</span>
+                                <br>
+                                <br>
+                                <span class="quote">&gt;Curabitur vel diam mauris. Proin nec quam maximus, porta sapien eget, ultrices metus. Mauris vitae massa et quam semper lacinia. Cras eu mattis turpis, lobortis fringilla dui. Nunc dapibus vehicula dui ut dictum. Phasellus fringilla tempor sagittis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Mauris finibus rutrum lectus eu laoreet. Fusce vehicula non eros at molestie.</span>
+                                <br>
+                                <br>
+                                <span>Sed finibus nulla vitae nulla placerat tristique. Suspendisse placerat, erat vitae convallis aliquam, est libero elementum turpis, id pellentesque erat magna in felis. Nunc et dolor euismod augue vehicula bibendum. Etiam dictum mi vel ante iaculis blandit. Ut sit amet facilisis sem. Nulla neque augue, dictum vel pharetra eu, varius eu lectus. Morbi sodales sagittis nisi, quis mollis nibh congue id. Nulla semper lacinia dignissim. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Sed id nibh ac nisl elementum feugiat in semper neque. In malesuada, sapien et rhoncus pretium, turpis est fringilla elit, non imperdiet odio dolor nec nibh. Integer molestie semper nisi, a posuere urna vestibulum sit amet.</span>
+                                <br>
+                                <br>
+                                <span class="quote">&gt;Ut imperdiet nulla eget elit dignissim congue. In sed sem lobortis odio euismod euismod id et nisi. Duis ut quam in dolor ornare mattis. Donec accumsan dui a dolor aliquam fermentum. Nulla in vulputate eros. Cras interdum eros et turpis ornare, id luctus odio ullamcorper. Donec tempor magna ac egestas vehicula. Nam fermentum, augue eget lobortis faucibus, nulla augue condimentum leo, et dignissim lorem lacus auctor enim. Ut ut mi non turpis facilisis consectetur quis eget turpis. Ut eu tortor quam. Aenean mattis quam semper nisi scelerisque eleifend. Praesent vitae condimentum velit. Aliquam erat volutpat. Nulla sit amet eleifend sem. In augue ex, consectetur ut auctor et, ullamcorper in ex.</span>
+                                <br>
+                                <br>
+                                <span>Nullam quis neque eu velit vehicula fermentum. Aenean molestie ac ex eget porta. Suspendisse ac sapien mattis, hendrerit metus posuere, ornare mauris. Pellentesque dictum feugiat nibh. Donec et pulvinar ante, vel tempus turpis. Nulla quis libero ut quam rhoncus ultrices. Sed rutrum mi justo, ut porttitor felis mattis sed. Duis mauris nulla, vulputate ut tempor eu, sagittis vel massa. Aliquam pellentesque metus vel elit placerat molestie. Duis et porttitor nunc. Pellentesque vel turpis non ipsum faucibus ultrices vitae quis ante. Nam sed pulvinar neque. Maecenas velit dolor, aliquet sit amet eros sit amet, placerat porta felis.</span>
+                                <br>
+                                <br>
+                                <span>Maecenas venenatis neque at erat scelerisque sodales. Donec porttitor rhoncus mauris, id faucibus erat varius in. Morbi gravida vel nisl vitae vestibulum. Aenean fringilla urna mauris, a porta diam posuere in. Mauris a nisl egestas, dignissim urna sed, tristique turpis. Fusce et efficitur neque. Nam vestibulum dolor eu orci rutrum sollicitudin. In non dictum neque. Sed faucibus nisl tincidunt ipsum pellentesque tristique. Nunc ac dui dui. Donec tempor lorem id lacus eleifend, in viverra odio facilisis. Sed semper erat sapien, quis mattis purus aliquet eget. Integer rutrum lacus id lectus interdum, et vehicula sem pellentesque. Pellentesque ultrices vel ipsum ut auctor. Fusce erat enim, dictum quis bibendum a, ullamcorper sit amet leo. Quisque imperdiet dignissim diam, porttitor vulputate leo.</span>
+                            </blockquote>
+                        </span>
+                    </div>
+                </div>
+                <hr>
+                <div id="postno-8" class="post">
+                    <div class="post-file-info">File: <a href="#">default.png</a> (2 KB, 300x100)</div>
+                    <div class="post-file">
+                        <img src="/static/assets/banners/default.png" />
+                    </div>
+                    <span class="post-container">
+                        <span class="post-poster-info">
+                            <input type="checkbox"><span class="post-poster-block"><span class="post-poster-name">Anonymous</span></span> <span class="post-time-posted">10/27/14(Mon)20:13:25</span> No.<a class="post-id" href="#postno-8">8</a> [<a href="#">Reply</a>]
+                        </span>
+                        <blockquote class="post-content">
+                            <span>Hey, what's up?</span>
+                        </blockquote>
+                    </span>
+                </div>
+                <div class="full-reply">
+                    <div class="reply-arrows">
+                        &gt;&gt;
+                    </div>
+                    <div id="postno-9" class="post post-reply">
+                        <span class="post-container">
+                            <span class="post-poster-info">
+                                <input type="checkbox"><span class="post-poster-block"><span class="post-poster-name">Anonymous</span></span> <span class="post-time-posted">10/27/14(Mon)20:35:36</span> No.<a class="post-id" href="#postno-9">9</a>
+                            </span>
+                            <blockquote class="post-content">
+                                <span>I'm fine, thanks.</span>
+                            </blockquote>
+                        </span>
+                    </div>
+                </div>
+                <div class="full-reply">
+                    <div class="reply-arrows">
+                        &gt;&gt;
+                    </div>
+                    <div id="postno-9" class="post post-reply">
+                        <span class="post-container">
+                            <span class="post-poster-info">
+                                <input type="checkbox"><span class="post-poster-block"><span class="post-poster-name">Anonymous</span></span> <span class="post-time-posted">10/27/14(Mon)20:35:36</span> No.<a class="post-id" href="#postno-9">9</a>
+                            </span>
+                            <blockquote class="post-content">
+                                <a href="/board/test/thread/10#p15" class="quotelink">&gt;&gt;15</a>
+                                <br>
+                                <span>Good to hear.</span>
+                            </blockquote>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            </div>
         </div>
         <hr>
         <div id="footer">
-
+            All trademarks and copyrights on this page are owned by their respective parties. Images uploaded are the responsibility of the Poster. Comments are owned by the Poster.
         </div>
         <script type="text/javascript">
             let minThreadFileAmount = 0;
@@ -218,9 +367,7 @@
                     type: "checkbox",
                     id: "image-" + fileCounter + "-spoiler-checkbox",
                 }).appendTo('.file-box:nth-of-type(' + fileCounter + ')');
-                $('<label>Spoiler image</label>', {
-                    for: "image-" + fileCounter + "-spoiler-checkbox"
-                }).appendTo('.file-box:nth-of-type(' + fileCounter + ')');
+                $('<label for="image-' + fileCounter +'-spoiler-checkbox">Spoiler image</label>').appendTo('.file-box:nth-of-type(' + fileCounter + ')');
 
                 loadButtons();
             });
