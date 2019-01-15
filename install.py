@@ -33,7 +33,9 @@ config = {
     "CSRF_ENABLED": True,
     "CSRF_SESSION_KEY": CSRF_SESSION_KEY,
     "SECRET_KEY": SECRET_KEY,
-    "LANGUAGE": "en_US"
+    "LANGUAGE": "en_US",
+    "ANNOUNCEMENT": "",
+    "DEFAULT_BOARD_LIST": "b"
 }
 
 CONFIG_PATH = os.path.join(BASE_DIR, 'config.json')
@@ -44,6 +46,8 @@ with open(CONFIG_PATH, 'w') as f:
 print(config)
 print("\nSaved config to: " + CONFIG_PATH)
 print('-' * 20)
+
+## Create admin
 admin_username = input("Admin username: ")
 admin_password = ""
 while admin_password == "":
@@ -57,4 +61,14 @@ from flyboard.auth.models import User
 admin = User(username=admin_username, password=admin_password)
 
 db.session.add(admin)
+
+## Create board /b/
+from flyboard.board.models import Board
+board_b = Board(
+    uri="b", 
+    title="Random", 
+    ids_allowed=True, 
+    mute_videos=False)
+
+db.session.add(board_b)
 db.session.commit()

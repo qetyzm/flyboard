@@ -15,11 +15,12 @@ class Board(Base):
     max_pages = db.Column(db.Integer, nullable=False)
     archive_pages = db.Column(db.Integer, nullable=False)
     max_file_size_in_mbs = db.Column(db.SmallInteger, nullable=False)
-    allowed_file_extensions = db.Column(db.String(200), nullable=False)
+    allowed_file_extensions = db.Column(db.String(256), nullable=False)
     mute_not_original = db.Column(db.Boolean, nullable=False)
     extra_js = db.Column(db.String(10000))
     extra_css = db.Column(db.String(10000))
     animated_thumbnails = db.Column(db.Boolean, nullable=False)
+    mute_videos = db.Column(db.Boolean, nullable=False)
 
     def __init__(
         self, 
@@ -39,7 +40,8 @@ class Board(Base):
         mute_not_original=False,
         extra_js="",
         extra_css="",
-        animated_thumbnails=False):
+        animated_thumbnails=False,
+        mute_videos=True):
         self.uri = uri
         self.title = title
         self.min_files = min_files
@@ -57,3 +59,4 @@ class Board(Base):
         self.extra_js = extra_js
         self.extra_css = extra_css
         self.animated_thumbnails = animated_thumbnails
+        self.mute_videos = mute_videos

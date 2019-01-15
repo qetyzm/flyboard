@@ -21,6 +21,15 @@
     <body>
         <div id="topbar">
             <span class="board-list">
+                {% if g.board_categories %}
+                    {% for category in g.board_categories %}
+                    [
+                        {% for board in category %}
+                            <a href="board/{{board.uri}}" title="/{{board.uri}}/ - {{ board.title }}">{{ board.uri }}</a>
+                        {% endfor %}
+                    ]
+                    {% endfor %}
+                {% endif %}
             </span>
             <span id="settings-side">
                 <a href="#" id="thread-watcher" class="glyphicon glyphicon-eye-open" onclick="return false;" title="{{ g.messages['thread_watcher'] }}"></a>

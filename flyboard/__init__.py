@@ -35,6 +35,8 @@ class Base(db.Model):
 def global_announcement():
     return "The global announcement."
 
+from flyboard.board.models import Board
+
 @app.before_request
 def before_request():
     g.site_name = app.config['SITE_NAME']
@@ -42,6 +44,21 @@ def before_request():
     g.banner = random_banner()
     g.global_announcement = global_announcement()
     g.messages = messages
+    g.board_categories = board_categories()
+        
+
+def board_categories():
+    category_list = app.config['DEFAULT_BOARD_LIST'].replace(' ', '').split('|')
+    categories = list(map(lambda x: x.split(','), category_list))
+    all_boards = Board.query.all()
+    board_categories = []
+    for board in all_boards:
+        boards = []
+        for category in categories:
+            if board.uri in category:
+                boards.append(board)
+        board_categories.append(boards)
+    return board_categories 
 
 @app.errorhandler(404)
 def not_found(error):
