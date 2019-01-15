@@ -29,6 +29,7 @@ def login():
         return jsonify({"valid": True, "message": g.messages["logged_in_successfully"]})
     return jsonify({"valid": False, "message": g.messages["wrong_credentials"]})
 
+
 @auth_module.route('/logout', methods=['POST'])
 def logout():
     logout_user()

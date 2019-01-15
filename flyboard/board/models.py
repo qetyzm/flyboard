@@ -18,4 +18,4 @@ class Board(Base):
     allowed_file_extensions = db.Column(db.String(200), nullable=False)
     mute_not_original = db.Column(db.Boolean, nullable=False)
     extra_js = db.Column(db.String(10000))
-    extra_python = db.Column(db.String(10000))
+    extra_css = db.Column(db.String(10000))

@@ -4,6 +4,12 @@ import json
 HOME_DIR = os.path.expanduser('~')
 BASE_DIR = os.path.join(HOME_DIR, "flyboard")
 
+import shutil
+try:
+    shutil.rmtree(BASE_DIR)
+except:
+    pass
+
 if not os.path.isdir(BASE_DIR):
     os.makedirs(BASE_DIR)
 
@@ -37,3 +43,18 @@ with open(CONFIG_PATH, 'w') as f:
 
 print(config)
 print("\nSaved config to: " + CONFIG_PATH)
+print('-' * 20)
+admin_username = input("Admin username: ")
+admin_password = ""
+while admin_password == "":
+    admin_password = input("Admin password: ")
+    if admin_password == "":
+        print("*Please enter any password*")
+
+from flyboard import db
+from flyboard.auth.models import User
+
+admin = User(username=admin_username, password=admin_password)
+
+db.session.add(admin)
+db.session.commit()
