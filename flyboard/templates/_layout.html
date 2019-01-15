@@ -21,15 +21,16 @@
     <body>
         <div id="topbar">
             <span class="board-list">
-                {% if g.board_categories %}
-                    {% for category in g.board_categories %}
-                    [
-                        {% for board in category %}
-                            <a href="board/{{board.uri}}" title="/{{board.uri}}/ - {{ board.title }}">{{ board.uri }}</a>
-                        {% endfor %}
-                    ]
+                {% for boards in g.board_categories %}
+                [
+                    {% for board in boards %}
+                        <a href="board/{{board.uri}}" title="/{{board.uri}}/ - {{ board.title }}">{{ board.uri }}</a>
+                        {% if not board == boards[-1] %}
+                        /
+                        {% endif %}
                     {% endfor %}
-                {% endif %}
+                ]
+                {% endfor %}
             </span>
             <span id="settings-side">
                 <a href="#" id="thread-watcher" class="glyphicon glyphicon-eye-open" onclick="return false;" title="{{ g.messages['thread_watcher'] }}"></a>
@@ -84,8 +85,25 @@
             {% endblock %}
         </div>
         <hr>
-        {% block bottombar %}
-        {% endblock %}
+        <div id="bottombar">
+            <span class="board-list">
+                {% if g.board_categories %}
+                    {% for category in g.board_categories %}
+                    [
+                        {% for board in category %}
+                            <a href="board/{{board.uri}}" title="/{{board.uri}}/ - {{ board.title }}">{{ board.uri }}</a>
+                        {% endfor %}
+                    ]
+                    {% endfor %}
+                {% endif %}
+            </span>
+            <span id="settings-side">
+                <a href="#" id="search-button" class="glyphicon glyphicon-search" title="Search"></a>
+                <a href="#" id="login-button" class="glyphicon glyphicon-user" title="Log in"></a>
+                <a href="#" id="settings-button" class="glyphicon glyphicon-cog" title="Settings"></a>
+                <a href="#" id="home-button" class="glyphicon glyphicon-home" title="Home"></a>
+            </span>
+        </div>
         <div id="footer">
             <p>{{ g.messages['footer_legal_info'] }}</p>
             [<a href="{{ url_for('home') }}">{{ g.messages['home'] }}</a>]

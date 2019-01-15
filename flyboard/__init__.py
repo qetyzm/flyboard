@@ -49,13 +49,15 @@ def before_request():
 
 def board_categories():
     category_list = app.config['DEFAULT_BOARD_LIST'].replace(' ', '').split('|')
-    categories = list(map(lambda x: x.split(','), category_list))
+    board_groups = list(map(lambda x: x.split(','), category_list))
     all_boards = Board.query.all()
+    uris = list(map(lambda b: b.uri, all_boards))
     board_categories = []
-    for board in all_boards:
+    for board_group in board_groups:
         boards = []
-        for category in categories:
-            if board.uri in category:
+        for uri in board_group:
+            if uri in uris:
+                board = Board.query.filter_by(uri=uri).first()
                 boards.append(board)
         board_categories.append(boards)
     return board_categories 
