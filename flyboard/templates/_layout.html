@@ -25,24 +25,26 @@
         <div class="cloak" style="display: none;">
             <div class="panel panel-floating-center">
                 <div class="panel-title">{{ g.messages['log_in'] }}</div>
-                <form>
-                    <table class="form-table">
-                        <tr>
-                            <th>{{ g.messages['username'] }}</th>
-                            <td><input type="text" id="login-username-input"/></td>
-                        </tr>
-                        <tr>
-                            <th>{{ g.messages['password'] }}</th>
-                            <td><input type="password" id="login-password-input"/></td>
-                        </tr>
-                        <tr>
-                            <th>{{ g.messages['action'] }}</th>
-                            <td>
-                                <button type="submit" id="login-btn" onclick="return false;">{{ g.messages['log_in'] }}</button>
-                            </td>
-                        </tr>
-                    </table>
-                </form>
+                <div class="panel-content">
+                    <form>
+                        <table class="form-table">
+                            <tr>
+                                <th>{{ g.messages['username'] }}</th>
+                                <td><input type="text" id="login-username-input"/></td>
+                            </tr>
+                            <tr>
+                                <th>{{ g.messages['password'] }}</th>
+                                <td><input type="password" id="login-password-input"/></td>
+                            </tr>
+                            <tr>
+                                <th>{{ g.messages['action'] }}</th>
+                                <td>
+                                    <button type="submit" id="login-btn" onclick="return false;">{{ g.messages['log_in'] }}</button>
+                                </td>
+                            </tr>
+                        </table>
+                    </form>
+                </div>
             </div>
         </div>
         <div id="header">

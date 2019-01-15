@@ -35,7 +35,7 @@ config = {
     "SECRET_KEY": SECRET_KEY,
     "LANGUAGE": "en_US",
     "ANNOUNCEMENT": "",
-    "DEFAULT_BOARD_LIST": "a b c"
+    "DEFAULT_BOARD_LIST": "b"
 }
 
 CONFIG_PATH = os.path.join(BASE_DIR, 'config.json')
@@ -47,6 +47,56 @@ print(config)
 print("\nSaved config to: " + CONFIG_PATH)
 print('-' * 20)
 
+## Create permissions
+from flyboard.auth.models import RolePermission
+from flyboard import db
+
+perms = (
+    RolePermission(key="*"),
+    RolePermission(key="flyboard.*"),
+    RolePermission(key="flyboard.admin.*"),
+    RolePermission(key="flyboard.admin.panel_access"),
+    RolePermission(key="flyboard.admin.set_perms"),
+    RolePermission(key="flyboard.admin.signature"),
+    RolePermission(key="flyboard.mod.*"),
+    RolePermission(key="flyboard.mod.panel_access"),
+    RolePermission(key="flyboard.mod.signature"),
+    RolePermission(key="flyboard.posts.*"),
+    RolePermission(key="flyboard.posts.ban"),
+    RolePermission(key="flyboard.posts.delete"),
+    RolePermission(key="flyboard.posts.move"),
+    RolePermission(key="flyboard.posts.shadowmute"),
+    RolePermission(key="flyboard.posts.show_ip"),
+    RolePermission(key="flyboard.user.*"),
+    RolePermission(key="flyboard.user.create"),
+    RolePermission(key="flyboard.user.delete"),
+    RolePermission(key="flyboard.vip.*"),
+    RolePermission(key="flyboard.vip.signature")
+)
+
+for perm in perms:
+    db.session.add(perm)
+
+## Create roles
+
+from flyboard.auth.models import Role
+
+role_moderator = Role(name="Mod")
+role_moderator.permissions.append(RolePermission.query.filter_by(key="flyboard.mod.*").first())
+role_moderator.permissions.append(RolePermission.query.filter_by(key="flyboard.posts.*").first())
+
+
+role_admin = Role(name="Admin")
+role_admin.permissions.append(RolePermission.query.filter_by(key="flyboard.admin.*").first())
+role_admin.permissions.append(RolePermission.query.filter_by(key="flyboard.posts.*").first())
+
+role_vip = Role(name="VIP")
+role_vip.permissions.append(RolePermission.query.filter_by(key="flyboard.vip.*").first())
+
+db.session.add(role_moderator)
+db.session.add(role_admin)
+db.session.add(role_vip)
+
 ## Create admin
 admin_username = input("Admin username: ")
 admin_password = ""
@@ -55,32 +105,35 @@ while admin_password == "":
     if admin_password == "":
         print("*Please enter any password*")
 
-from flyboard import db
 from flyboard.auth.models import User
 
-admin = User(username=admin_username, password=admin_password)
+admin = User(username=admin_username, password=admin_password, role=role_admin)
 
 db.session.add(admin)
 
 ## Create board /b/
 from flyboard.board.models import Board
+"""
 board_a = Board(
     uri="a", 
     title="Anime", 
     ids_allowed=True, 
     mute_videos=False)
+"""
 board_b = Board(
     uri="b", 
     title="Random", 
     ids_allowed=True, 
     mute_videos=False)
+"""
 board_c = Board(
     uri="c", 
     title="Technology", 
     ids_allowed=True, 
     mute_videos=False)
+"""
 
-db.session.add(board_a)
+#db.session.add(board_a)
 db.session.add(board_b)
-db.session.add(board_c)
+#db.session.add(board_c)
 db.session.commit()

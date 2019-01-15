@@ -50,7 +50,9 @@ def before_request():
 def board_categories():
     category_list = app.config['DEFAULT_BOARD_LIST'].replace(' ', '').split('|')
     board_groups = list(map(lambda x: x.split(','), category_list))
+    print(board_groups)
     all_boards = Board.query.all()
+    print(all_boards)
     uris = list(map(lambda b: b.uri, all_boards))
     board_categories = []
     for board_group in board_groups:

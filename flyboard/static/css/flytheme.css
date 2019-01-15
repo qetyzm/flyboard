@@ -288,19 +288,6 @@ blockquote {
     max-width: calc(100% - 2.17em);
 }
 
-.panel {
-    min-height: 50px;
-    min-width: 50px;
-    padding: 10px;
-    clear: both;
-    position: relative;
-}
-
-.panel-title {
-    text-align: center;
-    font-weight: bold;
-}
-
 .panel-floating-center {
     left: 0;
     right: 0;
@@ -384,5 +371,19 @@ blockquote {
 }
 
 .panel-title {
-    margin-bottom: 10px;
+    width: 100%;
+    color: darkblue;
+    background-color: rgb(109, 136, 255);
+    font-weight: bold;
+    border: 1px solid darkblue;
+}
+
+.panel {
+    min-height: 50px;
+    min-width: 50px;
+    clear: both;
+}
+
+.panel-content {
+    padding: 10px;
 }
