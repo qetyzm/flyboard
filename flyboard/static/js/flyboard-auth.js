@@ -1,5 +1,5 @@
 function initAuth(messages, urls) {
-    $('#logout-button').click(function(){
+    $('.logout-button').click(function(){
         $.ajax({
             url: urls['auth.logout'],
             type: "POST",

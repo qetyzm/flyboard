@@ -1,0 +1,25 @@
+<span class="board-list">
+    {% for boards in g.board_categories %}
+    [
+        {% for board in boards %}
+            <a href="board/{{board.uri}}" title="/{{board.uri}}/ - {{ board.title }}">{{ board.uri }}</a>
+            {% if not board == boards[-1] %}
+            /
+            {% endif %}
+        {% endfor %}
+    ]
+    {% endfor %}
+</span>
+<span class="settings-side">
+    <a href="#" class="glyphicon glyphicon-eye-open thread-watcher-button" onclick="return false;" title="{{ g.messages['thread_watcher'] }}"></a>
+    <a href="#" class="glyphicon glyphicon-search search-button" onclick="return false;" title="{{ g.messages['search'] }}"></a>
+    <a href="#" class="glyphicon glyphicon-cog settings-button" onclick="return false;" title="{{ g.messages['settings'] }}"></a>
+    {% if g.user.is_authenticated %}
+        <a href="#" class="glyphicon glyphicon-off logout-button" onclick="return false;" title="{{ g.messages['log_out'] }}"></a>
+        <a href="#" class="glyphicon glyphicon-wrench mod-panel-button" onclick="return false;" title="{{ g.messages['mod_panel'] }}"></a>
+    {% endif %}
+    {% if not g.user.is_authenticated %}
+        <a href="#" class="glyphicon glyphicon-user login-button" onclick="return false;" title="{{ g.messages['log_in'] }}"></a>
+    {% endif %}
+    <a href="{{ url_for('home') }}" id="home-button" class="glyphicon glyphicon-home" title="{{ g.messages['home'] }}"></a>
+</span>

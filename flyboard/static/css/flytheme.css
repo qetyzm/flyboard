@@ -84,7 +84,7 @@ center {
     float: left;
 }
 
-#settings-side {
+.settings-side {
     float: right;
     margin-right: 15px;
 }

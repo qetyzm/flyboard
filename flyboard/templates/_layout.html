@@ -20,31 +20,7 @@
     </head>
     <body>
         <div id="topbar">
-            <span class="board-list">
-                {% for boards in g.board_categories %}
-                [
-                    {% for board in boards %}
-                        <a href="board/{{board.uri}}" title="/{{board.uri}}/ - {{ board.title }}">{{ board.uri }}</a>
-                        {% if not board == boards[-1] %}
-                        /
-                        {% endif %}
-                    {% endfor %}
-                ]
-                {% endfor %}
-            </span>
-            <span id="settings-side">
-                <a href="#" id="thread-watcher" class="glyphicon glyphicon-eye-open" onclick="return false;" title="{{ g.messages['thread_watcher'] }}"></a>
-                <a href="#" id="search-button" class="glyphicon glyphicon-search" onclick="return false;" title="{{ g.messages['search'] }}"></a>
-                <a href="#" id="settings-button" class="glyphicon glyphicon-cog" onclick="return false;" title="{{ g.messages['settings'] }}"></a>
-                {% if g.user.is_authenticated %}
-                    <a href="#" id="logout-button" class="glyphicon glyphicon-off" onclick="return false;" title="{{ g.messages['log_out'] }}"></a>
-                    <a href="#" id="settings-button" class="glyphicon glyphicon-wrench" onclick="return false;" title="{{ g.messages['mod_panel'] }}"></a>
-                {% endif %}
-                {% if not g.user.is_authenticated %}
-                    <a href="#" id="login-button" class="glyphicon glyphicon-user" onclick="return false;" title="{{ g.messages['log_in'] }}"></a>
-                {% endif %}
-                <a href="{{ url_for('home') }}" id="home-button" class="glyphicon glyphicon-home" title="{{ g.messages['home'] }}"></a>
-            </span>
+            {% include 'bar_content.html' %}
         </div>
         <div class="cloak" style="display: none;">
             <div class="panel panel-floating-center">
@@ -78,32 +54,15 @@
             <p id="announcement">{{ g.global_announcement }}</p>
         </div>
         <hr>
-        {% block board_bar %}
-        {% endblock %}
         <div id="content">
             {% block content %}
             {% endblock %}
         </div>
         <hr>
         <div id="bottombar">
-            <span class="board-list">
-                {% if g.board_categories %}
-                    {% for category in g.board_categories %}
-                    [
-                        {% for board in category %}
-                            <a href="board/{{board.uri}}" title="/{{board.uri}}/ - {{ board.title }}">{{ board.uri }}</a>
-                        {% endfor %}
-                    ]
-                    {% endfor %}
-                {% endif %}
-            </span>
-            <span id="settings-side">
-                <a href="#" id="search-button" class="glyphicon glyphicon-search" title="Search"></a>
-                <a href="#" id="login-button" class="glyphicon glyphicon-user" title="Log in"></a>
-                <a href="#" id="settings-button" class="glyphicon glyphicon-cog" title="Settings"></a>
-                <a href="#" id="home-button" class="glyphicon glyphicon-home" title="Home"></a>
-            </span>
+            {% include 'bar_content.html' %}
         </div>
+        <hr>
         <div id="footer">
             <p>{{ g.messages['footer_legal_info'] }}</p>
             [<a href="{{ url_for('home') }}">{{ g.messages['home'] }}</a>]
