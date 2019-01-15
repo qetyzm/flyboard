@@ -14,6 +14,18 @@ $(document).ready(function() {
         return text;
     }
 
+    $('.cloak').click(function(e) {
+        if (e.target != this) {
+            return;
+        }
+
+        $('.cloak').hide();
+    })
+
+    $('#login-button').click(function() {
+        $('.cloak').show();
+    });
+
     // Start new thread button action
     $('#start-thread-link').click(function() {
         $('#start-thread-wrapper').hide();

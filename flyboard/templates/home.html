@@ -1,10 +1,9 @@
 {% extends "_layout.html" %}
-{% block title %}{{ g.messages['home_name'] }}{% endblock %}
-{% block header %}{{ g.messages['home_name'] }}{% endblock %}
+{% block title %}{{ g.messages['home'] }}{% endblock %}
+{% block header %}{{ g.messages['home'] }}{% endblock %}
 {% block announcement %}
 {% endblock %}
 {% block content %}
-
 <table id="popular-threads-table" cellspacing="0">
     <thead>
         <tr>
@@ -13,12 +12,8 @@
     </thead>
     <tbody>
         <tr>
-            <td>(TO REPLACE)</td>
-            <td>(TO REPLACE)</td>
-            <td>(TO REPLACE)</td>
-            <td>(TO REPLACE)</td>
+            <td class="empty">{{ g.messages['empty'] }}</td>
         </tr>
     </tbody>
 </table>
-
 {% endblock %}

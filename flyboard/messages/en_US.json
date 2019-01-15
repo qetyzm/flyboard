@@ -1,4 +1,25 @@
 {
-    "home_name": "Home",
-    "popular_threads": "Popular threads"
+    "home": "Home",
+    "popular_threads": "Popular threads",
+    "empty": "(Empty)",
+    "thread_watcher": "Thread watcher",
+    "search": "Search",
+    "settings": "Settings",
+    "log_in": "Log in",
+    "log_out": "Log out",
+    "mod_panel": "Mod panel",
+    "footer_legal_info": "All trademarks and copyrights on this page are owned by their respective parties. Images uploaded are the responsibility of the Poster. Comments are owned by the Poster.",
+    "faq": "FAQ",
+    "rules": "Rules",
+    "legal": "Legal",
+    "username": "Username",
+    "password": "Password",
+    "action": "Action",
+    "username_please": "Enter the username.",
+    "password_please": "Enter the password.",
+    "something_went_wrong": "Something went wrong.",
+    "wrong_content": "Wrong content type.",
+    "logged_in_successfully": "Logged in successfully.",
+    "wrong_credentials": "Wrong credentials.",
+    "logged_out_successfully": "Logged out successfully."
 }

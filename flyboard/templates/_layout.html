@@ -7,6 +7,15 @@
         <script type="text/javascript" src="/static/js/jquery-fieldselection.js"></script>
         <script type="text/javascript" src="/static/js/js.cookie.js"></script>
         <script type="text/javascript" src="/static/js/flyboard-board.js"></script>
+        <script type="text/javascript" src="/static/js/flyboard-auth.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function() {
+                initAuth({{ g.messages|tojson }}, {
+                    "auth.login": "{{ url_for('auth.login') }}",
+                    "auth.logout": "{{ url_for('auth.logout') }}",
+                });
+            });
+        </script>
         <title>{% block title %}{% endblock %}{% if g.site_name %} - {{ g.site_name }}{% endif %}</title>
     </head>
     <body>
@@ -14,13 +23,41 @@
             <span class="board-list">
             </span>
             <span id="settings-side">
-                <a href="#" id="thread-watcher" class="glyphicon glyphicon-eye-open" onclick="return false;" title="Thread Watcher"></a>
-                <a href="#" id="search-button" class="glyphicon glyphicon-search" onclick="return false;" title="Search"></a>
-                <a href="#" id="login-button" class="glyphicon glyphicon-user" onclick="return false;" title="Log in"></a>
-                <a href="#" id="settings-button" class="glyphicon glyphicon-cog" onclick="return false;" title="Settings"></a>
-                <a href="#" id="settings-button" class="glyphicon glyphicon-wrench" onclick="return false;" title="Admin panel"></a>
-                <a href="{{ url_for('home') }}" id="home-button" class="glyphicon glyphicon-home" title="Home"></a>
+                <a href="#" id="thread-watcher" class="glyphicon glyphicon-eye-open" onclick="return false;" title="{{ g.messages['thread_watcher'] }}"></a>
+                <a href="#" id="search-button" class="glyphicon glyphicon-search" onclick="return false;" title="{{ g.messages['search'] }}"></a>
+                <a href="#" id="settings-button" class="glyphicon glyphicon-cog" onclick="return false;" title="{{ g.messages['settings'] }}"></a>
+                {% if g.user.is_authenticated %}
+                    <a href="#" id="logout-button" class="glyphicon glyphicon-off" onclick="return false;" title="{{ g.messages['log_out'] }}"></a>
+                    <a href="#" id="settings-button" class="glyphicon glyphicon-wrench" onclick="return false;" title="{{ g.messages['mod_panel'] }}"></a>
+                {% endif %}
+                {% if not g.user.is_authenticated %}
+                    <a href="#" id="login-button" class="glyphicon glyphicon-user" onclick="return false;" title="{{ g.messages['log_in'] }}"></a>
+                {% endif %}
+                <a href="{{ url_for('home') }}" id="home-button" class="glyphicon glyphicon-home" title="{{ g.messages['home'] }}"></a>
             </span>
+        </div>
+        <div class="cloak" style="display: none;">
+            <div class="panel panel-floating-center">
+                <div class="panel-title">{{ g.messages['log_in'] }}</div>
+                <form>
+                    <table class="form-table">
+                        <tr>
+                            <th>{{ g.messages['username'] }}</th>
+                            <td><input type="text" id="login-username-input"/></td>
+                        </tr>
+                        <tr>
+                            <th>{{ g.messages['password'] }}</th>
+                            <td><input type="password" id="login-password-input"/></td>
+                        </tr>
+                        <tr>
+                            <th>{{ g.messages['action'] }}</th>
+                            <td>
+                                <button type="submit" id="login-btn" onclick="return false;">{{ g.messages['log_in'] }}</button>
+                            </td>
+                        </tr>
+                    </table>
+                </form>
+            </div>
         </div>
         <div id="header">
             <img id="banner" src="/static/assets/banners/{{ g.banner }}">
@@ -41,11 +78,11 @@
         {% block bottombar %}
         {% endblock %}
         <div id="footer">
-            <p>All trademarks and copyrights on this page are owned by their respective parties. Images uploaded are the responsibility of the Poster. Comments are owned by the Poster.</p>
-            [<a href="{{ url_for('home') }}">Home</a>]
-            [<a href="#" onclick="return false;">FAQ</a>]
-            [<a href="#" onclick="return false;">Rules</a>]
-            [<a href="#" onclick="return false;">Legal</a>]
+            <p>{{ g.messages['footer_legal_info'] }}</p>
+            [<a href="{{ url_for('home') }}">{{ g.messages['home'] }}</a>]
+            [<a href="#" onclick="return false;">{{ g.messages['faq'] }}</a>]
+            [<a href="#" onclick="return false;">{{ g.messages['rules'] }}</a>]
+            [<a href="#" onclick="return false;">{{ g.messages['legal'] }}</a>]
         </div>
     </body>
 </html>

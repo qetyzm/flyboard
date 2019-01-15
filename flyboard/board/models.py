@@ -10,7 +10,6 @@ class Board(Base):
     file_required_for_post = db.Column(db.Boolean, nullable=False)
     embeds_allowed = db.Column(db.Boolean, nullable=False)
     ids_allowed = db.Column(db.Boolean, nullable=False)
-    id_pseudos = db.Column(db.Boolean, nullable=False)
     sage_allowed = db.Column(db.Boolean, nullable=False)
     sage_shown = db.Column(db.Boolean, nullable=False)
     max_pages = db.Column(db.Integer, nullable=False)
