@@ -127,7 +127,7 @@ center {
     border-spacing: 1px;
 }
 
-.form-table th, #popular-threads-table th, .table th {
+.form-table th, .info-table th {
     width: 70px;
     background-color: rgb(109, 136, 255);
     color: darkblue;
@@ -137,31 +137,19 @@ center {
     height: auto;
 }
 
-#popular-threads-table th, .table th {
+.info-table th, .big-info-table th {
     border-bottom: 1px solid black;
 }
 
-#popular-threads-table, .table {
-    border: 1px solid black;
+.info-table, .big-info-table {
     min-height: 200px;
     text-align: center;
 }
 
-#popular-threads-table th {
-    text-align: center;
-    width: 60%;
-    min-width: 500px;
-    margin: 0;
-}
-
-#popular-threads-table tbody, .table tbody {
+.info-table tbody, .big-info-table tbody {
     background-color: snow;
     border: 1px solid black;
     border-collapse: separate;
-}
-
-#popular-threads-table td {
-    padding: 0;
 }
 
 .form-table td {
@@ -344,10 +332,6 @@ blockquote {
 }
 */
 
-#popular-threads-table {
-    margin: auto;
-}
-
 #login-form-table {
     position: fixed;
     left: 50%;
@@ -366,7 +350,7 @@ blockquote {
     text-align: center;
 }
 
-.table th {
+.info-table th {
     text-align: center;
 }
 
@@ -386,4 +370,57 @@ blockquote {
 
 .panel-content {
     padding: 10px;
+}
+
+.panel-exit-button {
+    float: right;
+}
+
+#stats-table {
+    min-height: auto;
+}
+
+#stats-table td {
+    padding: 5px;
+}
+
+#info-box {
+    width: 50%;
+    min-width: 600px;
+    margin: auto;
+    padding: 40px;
+}
+
+.big-info-table {
+    text-align: left;
+    width: 100%;
+    min-width: 600px;
+    margin-bottom: 40px;
+    box-shadow: 0 0 0 1px gray;
+}
+
+.big-info-table th {
+    font-style: italic;
+    font-weight: bold;
+    font-size: 24px;
+    background-color: rgb(153, 172, 255);
+    color: darkblue;
+    padding: 5px;
+    padding-left: 10px;
+    border: none;
+    border-bottom: black;
+}
+
+.big-info-table tr {
+    text-align: center;
+}
+
+.big-info-table tbody {
+    border-collapse: collapse;
+    border-bottom: gray;
+    border-right: gray;
+}
+
+.disabled {
+    opacity: .45;
 }

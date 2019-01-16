@@ -20,6 +20,10 @@ $(document).ready(function() {
         }
 
         $('.cloak').hide();
+    });
+
+    $('.panel-exit-button').click(function() {
+        $('.cloak').hide();
     })
 
     $('.login-button').click(function() {

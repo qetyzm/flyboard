@@ -1,6 +1,12 @@
 from flyboard import db, Base
 
 
+class Stylesheet(Base):
+    __tablename__ = 'stylesheet'
+    name = db.Column(db.String(256), nullable=False, unique=True)
+    style_content = db.Column(db.String(10000), nullable=False)
+
+
 class Board(Base):
     __tablename__ = 'board'
     uri = db.Column(db.String(64), nullable=False, unique=True)
@@ -21,6 +27,7 @@ class Board(Base):
     extra_css = db.Column(db.String(10000))
     animated_thumbnails = db.Column(db.Boolean, nullable=False)
     mute_videos = db.Column(db.Boolean, nullable=False)
+    default_css = db.Column(db.Integer, db.ForeignKey('stylesheet.id'))
 
     def __init__(
         self, 

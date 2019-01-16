@@ -35,7 +35,8 @@ config = {
     "SECRET_KEY": SECRET_KEY,
     "LANGUAGE": "en_US",
     "ANNOUNCEMENT": "",
-    "DEFAULT_BOARD_LIST": "b"
+    "DEFAULT_BOARD_LIST": "b",
+    "SESSION_TIME_ONLINE_MINUTES": 5
 }
 
 CONFIG_PATH = os.path.join(BASE_DIR, 'config.json')

@@ -22,5 +22,8 @@
     "wrong_content": "Wrong content type.",
     "logged_in_successfully": "Logged in successfully.",
     "wrong_credentials": "Wrong credentials.",
-    "logged_out_successfully": "Logged out successfully."
+    "logged_out_successfully": "Logged out successfully.",
+    "stats": "Stats",
+    "users_online": "Users online",
+    "posts_within_a_minute": "Posts within a minute"
 }

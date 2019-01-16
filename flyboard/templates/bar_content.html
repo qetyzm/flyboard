@@ -2,7 +2,7 @@
     {% for boards in g.board_categories %}
     [
         {% for board in boards %}
-            <a href="board/{{board.uri}}" title="/{{board.uri}}/ - {{ board.title }}">{{ board.uri }}</a>
+            <a href="/board/{{board.uri}}" title="/{{board.uri}}/ - {{ board.title }}">{{ board.uri }}</a>
             {% if not board == boards[-1] %}
             /
             {% endif %}

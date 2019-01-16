@@ -1,0 +1,77 @@
+{% extends "_layout.html" %}
+{% block title %}/{{ board.uri }}/ - {{ board.title }}{% endblock %}
+{% block header %}/{{ board.uri }}/ - {{ board.title }}{% endblock %}
+{% block board_header %}
+<div id="board-header">
+    <hr>
+    <div id="start-thread-box">
+        <div id="start-thread-wrapper" class="bold">
+            [<a href="#" id="start-thread-link" title="Show thread creator">Start a new thread</a>]
+        </div>
+        <div id="no-thread-wrapper" class="bold">
+            [<a href="#" id="no-thread-link" title="Hide thread creator">Hide the form</a>]
+        </div>
+        <div id="new-thread-creator" style="display: none;">
+            <form>
+                <table class="form-table">
+                    <tr>
+                        <th>Name</th>
+                        <td><input type="text" id="name-input"/></td>
+                    </tr>
+                    <tr>
+                        <th>Email</th>
+                        <td><input type="email" id="email-input"/></td>
+                    </tr>
+                    <tr>
+                        <th>Subject</th>
+                        <td><input type="text" id="subject-input"/></td>
+                    </tr>
+                    <tr>
+                        <th>Message</th>
+                        <td><textarea type="text" rows="4" col="30" id="message-input"/></textarea></td>
+                    </tr>
+                    <tr>
+                        <th>BBCode</th>
+                        <td class="no-bold horizontal-buttons">
+                            <a id="bold-btn" class="btn" href="#"><strong>B</strong></a>
+                            <a id="italic-btn" class="btn" href="#"><em>I</em></a>
+                            <a id="underline-btn" class="btn" href="#"><u>U</u></a>
+                            <a id="code-btn" class="btn" href="#">code</a>
+                            <a id="spoiler-btn" class="btn" href="#">spoiler</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Embed</th>
+                        <td><input type="text" id="embed-input"/></td>
+                    </tr>
+                    <tr>
+                        <th>Password</th>
+                        <td><input type="text" id="password-input"/></td>
+                    </tr>
+                    <tr>
+                        <th>File(s)</th>
+                        <td id="files">
+                            <div id="image-buttons">[<a href="#" id="add-image-btn">Add</a><span id="image-btn-separator"> / </span><a href="#" id="remove-image-btn">Remove</a>]</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Action</th>
+                        <td>
+                            <button type="submit" id="send-btn">Send</button>
+                        </td>
+                    </tr>
+                </table>
+            </form>
+            <div id="post-info-box">
+                <b>Supported file types</b>: <br>
+                <b>Maximum file size</b>: <br>
+                <b>Current unique posters</b>: <br>
+                <b>Messages posted within last minute</b>: 
+            </div>
+        </div>
+    </div>
+    <p id="users-online-text">Users online: <span id="users-online-count" class="bold">{{ g.sessions_online }}</span></p>
+</div>
+{% endblock %}
+{% block content %}
+{% endblock %}
