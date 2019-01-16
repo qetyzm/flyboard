@@ -25,5 +25,6 @@
     "logged_out_successfully": "Logged out successfully.",
     "stats": "Stats",
     "users_online": "Users online",
-    "posts_within_a_minute": "Posts within a minute"
+    "total_posts": "Total posts",
+    "unique_posters": "Unique posters"
 }

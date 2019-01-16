@@ -106,6 +106,7 @@ center {
     font-size: 28px;
     color: brown;
     font-weight: bold;
+    margin-bottom: 10px;
 }
 
 #banner {
@@ -400,6 +401,7 @@ blockquote {
 }
 
 .big-info-table th {
+    text-align: left;
     font-style: italic;
     font-weight: bold;
     font-size: 24px;
