@@ -17,9 +17,6 @@
     {% endif %}
     {% if g.user.is_authenticated %}
         <a href="#" class="glyphicon glyphicon-off logout-button" onclick="return false;" title="{{ g.messages['log_out'] }}"></a>
-        {% if g.user.has_permission('flyboard.admin.panel_access') %}
-            <a href="#" class="glyphicon glyphicon-wrench admin-panel-button" onclick="return false;" title="{{ g.messages['admin_panel'] }}"></a>
-        {% endif %}
         {% if g.user.has_permission('flyboard.mod.panel_access') %}
             <a href="#" class="glyphicon glyphicon-wrench mod-panel-button" onclick="return false;" title="{{ g.messages['mod_panel'] }}"></a>
         {% endif %}

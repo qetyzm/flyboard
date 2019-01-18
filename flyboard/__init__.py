@@ -103,8 +103,10 @@ def home():
 
 from flyboard.auth.controllers import auth_module
 from flyboard.board.controllers import board_module
+from flyboard.mod.controllers import mod_module
 
 app.register_blueprint(auth_module)
 app.register_blueprint(board_module)
+app.register_blueprint(mod_module)
 
 db.create_all()

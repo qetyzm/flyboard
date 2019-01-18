@@ -89,6 +89,7 @@ role_moderator.permissions.append(RolePermission.query.filter_by(key="flyboard.p
 
 role_admin = Role(name="Admin")
 role_admin.permissions.append(RolePermission.query.filter_by(key="flyboard.admin.*").first())
+role_admin.permissions.append(RolePermission.query.filter_by(key="flyboard.mod.panel_access").first())
 role_admin.permissions.append(RolePermission.query.filter_by(key="flyboard.posts.*").first())
 
 role_vip = Role(name="VIP")
@@ -117,7 +118,7 @@ from flyboard.board.models import Board
 board_a = Board(
     uri="a", 
     title="Anime", 
-    ids_allowed=True, 
+    ids_allowed=False, 
     mute_videos=False)
 board_b = Board(
     uri="b", 
@@ -127,7 +128,7 @@ board_b = Board(
 board_c = Board(
     uri="c", 
     title="Technology", 
-    ids_allowed=True, 
+    ids_allowed=False, 
     mute_videos=False)
 
 db.session.add(board_a)
