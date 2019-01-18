@@ -1,0 +1,19 @@
+{% extends "_layout.html" %}
+{% block title %}{{ g.messages['404_not_found'] }}{% endblock %}
+{% block header %}{{ g.messages['404_not_found'] }}{% endblock %}
+{% block content %}
+<div id="info-box">
+    <table id="404-table" class="info-table" cellspacing="0">
+        <thead>
+            <tr>
+                <th colspan="4">{{ g.messages['404_not_found'] }}</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="empty">{{ g.messages['empty'] }}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+{% endblock %}

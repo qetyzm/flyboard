@@ -114,27 +114,23 @@ db.session.add(admin)
 
 ## Create board /b/
 from flyboard.board.models import Board
-"""
 board_a = Board(
     uri="a", 
     title="Anime", 
     ids_allowed=True, 
     mute_videos=False)
-"""
 board_b = Board(
     uri="b", 
     title="Random", 
     ids_allowed=True, 
     mute_videos=False)
-"""
 board_c = Board(
     uri="c", 
     title="Technology", 
     ids_allowed=True, 
     mute_videos=False)
-"""
 
-#db.session.add(board_a)
+db.session.add(board_a)
 db.session.add(board_b)
-#db.session.add(board_c)
+db.session.add(board_c)
 db.session.commit()

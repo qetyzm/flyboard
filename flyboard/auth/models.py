@@ -73,6 +73,8 @@ class User(Base):
         return str(self.id)
 
     def has_permission(self, permission):
+        if not self.role:
+            return False
         levels = permission.split('.')
         for permission in self.role.permissions:
             perm_levels = permission.key.split('.')

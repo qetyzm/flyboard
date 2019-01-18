@@ -3,31 +3,31 @@
 {% block header %}{{ g.messages['home'] }}{% endblock %}
 {% block content %}
 <div id="info-box">
-<table id="popular-threads-table" class="big-info-table" cellspacing="0">
-    <thead>
-        <tr>
-            <th colspan="4">{{ g.messages['popular_threads'] }}</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td class="empty">{{ g.messages['empty'] }}</td>
-        </tr>
-    </tbody>
-</table>
-<table id="stats-table" class="big-info-table" cellspacing="0">
-    <thead>
-        <tr>
-            <th colspan="3">{{ g.messages['stats'] }}</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td><b>{{ g.messages['total_posts'] }}:</b> </td>
-            <td><b>{{ g.messages['users_online'] }}:</b> {{g.sessions_online}}</td>
-            <td><b>{{ g.messages['unique_posters'] }}:</b> </td>
-        </tr>
-    </tbody>
-</table>
+    <table id="popular-threads-table" class="big-info-table" cellspacing="0">
+        <thead>
+            <tr>
+                <th colspan="4">{{ g.messages['popular_threads'] }}</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="empty">{{ g.messages['empty'] }}</td>
+            </tr>
+        </tbody>
+    </table>
+    <table id="stats-table" class="big-info-table" cellspacing="0">
+        <thead>
+            <tr>
+                <th colspan="3">{{ g.messages['stats'] }}</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><b>{{ g.messages['total_posts'] }}:</b> </td>
+                <td><b>{{ g.messages['users_online'] }}:</b> {{g.sessions_online}}</td>
+                <td><b>{{ g.messages['unique_posters'] }}:</b> </td>
+            </tr>
+        </tbody>
+    </table>
 </div>
 {% endblock %}

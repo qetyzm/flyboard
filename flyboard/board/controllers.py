@@ -12,4 +12,6 @@ def test():
 @board_module.route('/<uri>/')
 def board_index(uri):
     board = Board.query.filter_by(uri=uri).first()
+    if not board:
+        return render_template('404.html'), 404
     return render_template('board/board_index.html', board=board)

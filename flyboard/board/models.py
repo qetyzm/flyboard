@@ -1,10 +1,35 @@
 from flyboard import db, Base
 
 
+board_flags = db.Table(
+    'board_flags',
+    db.Column('board_id', db.Integer, db.ForeignKey('board.id'), primary_key=True),
+    db.Column('custom_flag_id', db.Integer, db.ForeignKey('custom_flag.id'), primary_key=True)
+)
+
+
+board_file_extensions = db.Table(
+    'board_file_extensions',
+    db.Column('board_id', db.Integer, db.ForeignKey('board.id'), primary_key=True),
+    db.Column('file_extension_id', db.Integer, db.ForeignKey('file_extension.id'), primary_key=True)
+)
+
+
 class Stylesheet(Base):
     __tablename__ = 'stylesheet'
     name = db.Column(db.String(256), nullable=False, unique=True)
     style_content = db.Column(db.String(10000), nullable=False)
+
+
+class CustomFlag(Base):
+    __tablename__ = 'custom_flag'
+    name = db.Column(db.String(256), nullable=False, unique=True)
+    path = db.Column(db.String(256), nullable=False, unique=True)
+
+
+class FileExtension(Base):
+    __tablename__ = 'file_extension'
+    extension = db.Column(db.String(4), nullable=False, unique=True)
 
 
 class Board(Base):
@@ -21,13 +46,21 @@ class Board(Base):
     max_pages = db.Column(db.Integer, nullable=False)
     archive_pages = db.Column(db.Integer, nullable=False)
     max_file_size_in_mbs = db.Column(db.SmallInteger, nullable=False)
-    allowed_file_extensions = db.Column(db.String(256), nullable=False)
     mute_not_original = db.Column(db.Boolean, nullable=False)
     extra_js = db.Column(db.String(10000))
     extra_css = db.Column(db.String(10000))
     animated_thumbnails = db.Column(db.Boolean, nullable=False)
     mute_videos = db.Column(db.Boolean, nullable=False)
     default_css = db.Column(db.Integer, db.ForeignKey('stylesheet.id'))
+    show_country_flags = db.Column(db.Boolean, nullable=False)
+    allowed_file_extensions = db.relationship(
+        'FileExtension', secondary=board_file_extensions, 
+        lazy='subquery', 
+        backref=db.backref('boards', lazy=True))
+    custom_flags = db.relationship(
+        'CustomFlag', secondary=board_flags, 
+        lazy='subquery', 
+        backref=db.backref('boards', lazy=True))
 
     def __init__(
         self, 
@@ -43,12 +76,12 @@ class Board(Base):
         max_pages=10,
         archive_pages=5,
         max_file_size_in_mbs=10,
-        allowed_file_extensions="png,gif,jpg,jpeg,webm,mp4",
         mute_not_original=False,
         extra_js="",
         extra_css="",
         animated_thumbnails=False,
-        mute_videos=True):
+        mute_videos=True,
+        show_country_flags=False):
         self.uri = uri
         self.title = title
         self.min_files = min_files
@@ -61,9 +94,14 @@ class Board(Base):
         self.max_pages = max_pages
         self.archive_pages = archive_pages
         self.max_file_size_in_mbs = max_file_size_in_mbs
-        self.allowed_file_extensions = allowed_file_extensions
         self.mute_not_original = mute_not_original
         self.extra_js = extra_js
         self.extra_css = extra_css
         self.animated_thumbnails = animated_thumbnails
         self.mute_videos = mute_videos
+        self.show_country_flags = show_country_flags
+        self.allowed_file_extensions = []
+        self.custom_flags = []
+    
+    def get_formatted_file_extensions(self):
+        return ", ".join(list(map(lambda x: x.extension, self.allowed_file_extensions)))

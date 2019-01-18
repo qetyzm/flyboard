@@ -5,32 +5,32 @@
 <div id="board-header">
     <div id="start-thread-box">
         <div id="start-thread-wrapper" class="bold">
-            [<a href="#" id="start-thread-link" title="Show thread creator">Start a new thread</a>]
+            [<a href="#" id="start-thread-link" title="{{ g.messages['show_thread_creator'] }}">{{ g.messages['start_a_new_thread'] }}</a>]
         </div>
         <div id="no-thread-wrapper" class="bold">
-            [<a href="#" id="no-thread-link" title="Hide thread creator">Hide the form</a>]
+            [<a href="#" id="no-thread-link" title="{{ g.messages['hide_thread_creator'] }}">{{ g.messages['hide_the_form'] }}</a>]
         </div>
         <div id="new-thread-creator" style="display: none;">
             <form>
                 <table class="form-table">
                     <tr>
-                        <th>Name</th>
+                        <th>{{ g.messages['name'] }}</th>
                         <td><input type="text" id="name-input"/></td>
                     </tr>
                     <tr>
-                        <th>Email</th>
-                        <td><input type="email" id="email-input"/></td>
+                        <th>{{ g.messages['options'] }}</th>
+                        <td><input type="text" id="options-input"/></td>
                     </tr>
                     <tr>
-                        <th>Subject</th>
+                        <th>{{ g.messages['subject'] }}</th>
                         <td><input type="text" id="subject-input"/></td>
                     </tr>
                     <tr>
-                        <th>Message</th>
+                        <th>{{ g.messages['message'] }}</th>
                         <td><textarea type="text" rows="4" col="30" id="message-input"/></textarea></td>
                     </tr>
                     <tr>
-                        <th>BBCode</th>
+                        <th>{{ g.messages['bbcode'] }}</th>
                         <td class="no-bold horizontal-buttons">
                             <a id="bold-btn" class="btn" href="#"><strong>B</strong></a>
                             <a id="italic-btn" class="btn" href="#"><em>I</em></a>
@@ -40,21 +40,32 @@
                         </td>
                     </tr>
                     <tr>
-                        <th>Embed</th>
+                        <th>{{ g.messages['embed'] }}</th>
                         <td><input type="text" id="embed-input"/></td>
                     </tr>
                     <tr>
-                        <th>Password</th>
+                        <th>{{ g.messages['password'] }}</th>
                         <td><input type="text" id="password-input"/></td>
                     </tr>
                     <tr>
-                        <th>File(s)</th>
+                        <th>{{ g.messages['custom_flag'] }}</th>
+                        <td>
+                            <select id="custom-flag-input">
+                                <option value="test1">Test 1</option>
+                                <option value="test2">Test 2</option>
+                                <option value="test3">Test 3</option>
+                                <option value="test4">Test 4</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>{{ g.messages['file_s_'] }}</th>
                         <td id="files">
                             <div id="image-buttons">[<a href="#" id="add-image-btn">Add</a><span id="image-btn-separator"> / </span><a href="#" id="remove-image-btn">Remove</a>]</div>
                         </td>
                     </tr>
                     <tr>
-                        <th>Action</th>
+                        <th>{{ g.messages['action'] }}</th>
                         <td>
                             <button type="submit" id="send-btn">Send</button>
                         </td>
@@ -62,10 +73,12 @@
                 </table>
             </form>
             <div id="post-info-box">
-                <b>Supported file types</b>: <br>
-                <b>Maximum file size</b>: <br>
-                <b>Current unique posters</b>: <br>
-                <b>Messages posted within last minute</b>: 
+                {% if board.allowed_file_extensions %}
+                    <b>{{ g.messages['supported_file_types'] }}</b>: {{ board.get_formatted_file_extensions() }}<br>
+                {% endif %}
+                <b>{{ g.messages['maximum_file_size'] }}</b>: <br>
+                <b>{{ g.messages['current_posts'] }}</b>: <br>
+                <b>{{ g.messages['messages_posted_within_last_minute'] }}</b>: 
             </div>
         </div>
     </div>
