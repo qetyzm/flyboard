@@ -13,10 +13,12 @@
         <div id="new-thread-creator" style="display: none;">
             <form>
                 <table class="form-table">
+                    {% if board.custom_name_allowed %}
                     <tr>
                         <th>{{ g.messages['name'] }}</th>
                         <td><input type="text" id="name-input"/></td>
                     </tr>
+                    {% endif %}
                     <tr>
                         <th>{{ g.messages['options'] }}</th>
                         <td><input type="text" id="options-input"/></td>
@@ -39,14 +41,17 @@
                             <a id="spoiler-btn" class="btn" href="#">spoiler</a>
                         </td>
                     </tr>
+                    {% if board.embeds_allowed %}
                     <tr>
                         <th>{{ g.messages['embed'] }}</th>
                         <td><input type="text" id="embed-input"/></td>
                     </tr>
+                    {% endif %}
                     <tr>
                         <th>{{ g.messages['password'] }}</th>
                         <td><input type="text" id="password-input"/></td>
                     </tr>
+                    {% if board.custom_flags %}
                     <tr>
                         <th>{{ g.messages['custom_flag'] }}</th>
                         <td>
@@ -58,16 +63,24 @@
                             </select>
                         </td>
                     </tr>
-                    <tr>
-                        <th>{{ g.messages['file_s_'] }}</th>
-                        <td id="files">
-                            <div id="image-buttons">[<a href="#" id="add-image-btn">Add</a><span id="image-btn-separator"> / </span><a href="#" id="remove-image-btn">Remove</a>]</div>
-                        </td>
-                    </tr>
+                    {% endif %}
+                    {% if board.max_files == 0 %}
+                        <tr>
+                            {% if board.max_files == 1 %}
+                                <th>{{ g.messages['file'] }}</th>
+                            {% endif %}
+                            {% if board.max_files > 1 %}
+                                <th>{{ g.messages['files'] }}</th>
+                            {% endif %}
+                            <td id="files">
+                                <div id="image-buttons">[<a href="#" id="add-image-btn">Add</a><span id="image-btn-separator"> / </span><a href="#" id="remove-image-btn">Remove</a>]</div>
+                            </td>
+                        </tr>
+                    {% endif %}
                     <tr>
                         <th>{{ g.messages['action'] }}</th>
                         <td>
-                            <button type="submit" id="send-btn">Send</button>
+                            <button type="submit" id="send-btn">{{ g.messages['send'] }}</button>
                         </td>
                     </tr>
                 </table>
@@ -76,7 +89,9 @@
                 {% if board.allowed_file_extensions %}
                     <b>{{ g.messages['supported_file_types'] }}</b>: {{ board.get_formatted_file_extensions() }}<br>
                 {% endif %}
-                <b>{{ g.messages['maximum_file_size'] }}</b>: <br>
+                {% if board.max_files > 0 %}
+                    <b>{{ g.messages['maximum_file_size'] }}</b>: {{ board.max_file_size_in_mbs }}M<br>
+                {% endif %}
                 <b>{{ g.messages['current_posts'] }}</b>: <br>
                 <b>{{ g.messages['messages_posted_within_last_minute'] }}</b>: 
             </div>

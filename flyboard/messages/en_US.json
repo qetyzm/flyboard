@@ -39,10 +39,12 @@
     "bbcode": "BBCode",
     "embed": "Embed",
     "choose_the_flag": "Choose the flag",
-    "file_s_": "File(s)",
+    "file": "File",
+    "files": "Files",
     "supported_file_types": "Supported file types",
     "maximum_file_size": "Maximum file size",
     "current_posts": "Current posts",
     "messages_posted_within_last_minute": "Messages posted within last minute",
-    "custom_flag": "Custom flag"
+    "custom_flag": "Custom flag",
+    "send": "Send"
 }

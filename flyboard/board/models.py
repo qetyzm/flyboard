@@ -39,6 +39,9 @@ class Board(Base):
     min_files = db.Column(db.SmallInteger, nullable=False)
     max_files = db.Column(db.SmallInteger, nullable=False)
     file_required_for_post = db.Column(db.Boolean, nullable=False)
+    default_poster_name = db.Column(db.String(96), nullable=False)
+    tripcode_allowed = db.Column(db.Boolean, nullable=False)
+    custom_name_allowed = db.Column(db.Boolean, nullable=False)
     embeds_allowed = db.Column(db.Boolean, nullable=False)
     ids_allowed = db.Column(db.Boolean, nullable=False)
     sage_allowed = db.Column(db.Boolean, nullable=False)
@@ -47,8 +50,8 @@ class Board(Base):
     archive_pages = db.Column(db.Integer, nullable=False)
     max_file_size_in_mbs = db.Column(db.SmallInteger, nullable=False)
     mute_not_original = db.Column(db.Boolean, nullable=False)
-    extra_js = db.Column(db.String(10000))
-    extra_css = db.Column(db.String(10000))
+    extra_js = db.Column(db.String(1000000))
+    extra_css = db.Column(db.String(1000000))
     animated_thumbnails = db.Column(db.Boolean, nullable=False)
     mute_videos = db.Column(db.Boolean, nullable=False)
     default_css = db.Column(db.Integer, db.ForeignKey('stylesheet.id'))
@@ -69,6 +72,9 @@ class Board(Base):
         min_files=1, 
         max_files=1, 
         file_required_for_post=False,
+        default_poster_name="Anonymous",
+        tripcode_allowed=False,
+        custom_name_allowed=False,
         embeds_allowed=False,
         ids_allowed=False,
         sage_allowed=True,
@@ -87,6 +93,9 @@ class Board(Base):
         self.min_files = min_files
         self.max_files = max_files
         self.file_required_for_post = file_required_for_post
+        self.default_poster_name = default_poster_name
+        self.tripcode_allowed = tripcode_allowed
+        self.custom_name_allowed = custom_name_allowed
         self.embeds_allowed = embeds_allowed
         self.ids_allowed = ids_allowed
         self.sage_allowed = sage_allowed
