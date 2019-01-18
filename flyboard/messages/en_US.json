@@ -8,7 +8,6 @@
     "log_in": "Log in",
     "log_out": "Log out",
     "mod_panel": "Mod panel",
-    "admin_panel": "Admin panel",
     "footer_legal_info": "All trademarks and copyrights on this page are owned by their respective parties. Images uploaded are the responsibility of the Poster. Comments are owned by the Poster.",
     "faq": "FAQ",
     "rules": "Rules",
@@ -46,5 +45,17 @@
     "current_posts": "Current posts",
     "messages_posted_within_last_minute": "Messages posted within last minute",
     "custom_flag": "Custom flag",
-    "send": "Send"
+    "send": "Send",
+    "moderator_settings": "Moderator settings",
+    "bans": "Ban list",
+    "boards": "Boards",
+    "banners": "Banners",
+    "custom_flags": "Custom flags",
+    "wordfilters": "Wordfilters",
+    "assets": "Assets",
+    "administrator_settings": "Admin settings",
+    "moderators": "Moderators",
+    "general_settings": "General settings",
+    "whitelist": "Whitelist",
+    "logged_in_as": "Logged in as"
 }

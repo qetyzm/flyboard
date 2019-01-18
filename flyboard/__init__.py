@@ -13,12 +13,13 @@ MESSAGES_PATH = os.path.join('flyboard', 'messages')
 app = Flask(__name__)
 app.config.from_json(CONFIG_PATH)
 app.config['ONLINE_SESSIONS'] = {}
+app.static_path = app.static_folder
 
 db = SQLAlchemy(app)
 
 login_manager = LoginManager()
 login_manager.init_app(app)
-login_manager.login_view = 'auth.login'
+login_manager.login_view = 'home'
 
 def load_messages():
     lang = app.config['LANGUAGE']

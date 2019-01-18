@@ -25,22 +25,6 @@
                     return text;
                 }
 
-                $('.cloak').click(function(e) {
-                    if (e.target != this) {
-                        return;
-                    }
-
-                    $('.cloak').hide();
-                });
-
-                $('.panel-exit-button').click(function() {
-                    $('.cloak').hide();
-                })
-
-                $('.login-button').click(function() {
-                    $('.cloak').show();
-                });
-
                 // Start new thread button action
                 $('#start-thread-link').click(function() {
                     $('#start-thread-wrapper').hide();
@@ -168,6 +152,23 @@
         {% endif %}
         <script type="text/javascript">
             $(document).ready(function() {
+                $('.cloak').click(function(e) {
+                    if (e.target != this) {
+                        return;
+                    }
+
+                    $('.cloak').hide();
+                });
+
+                $('.panel-exit-button').click(function() {
+                    $('.cloak').hide();
+                })
+
+                $('.login-button').click(function() {
+                    $('.cloak').show();
+                });
+
+
                 $('.logout-button').click(function(){
                     $.ajax({
                         url: "{{ url_for('auth.logout') }}",
