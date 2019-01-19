@@ -1,0 +1,74 @@
+{% extends "_layout.html" %}
+{% block title %}{{ g.messages['mod_panel'] }}{% endblock %}
+{% block header %}{{ g.messages['mod_panel'] }}{% endblock %}
+{% block content %}
+<div id="info-box">
+    <table id="mod-table" class="info-table" cellspacing="0">
+        <thead>
+            <tr>
+                <th colspan="4">{{ g.messages['general_settings'] }}</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr id="logged-in-info">
+                <td colspan="2">
+                    <a href="{{ url_for('mod.panel') }}">&lt;&lt; {{ g.messages['back'] }}</a>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <table class="inner-table">
+                        <tbody>
+                            <tr>
+                                <th>{{ g.messages['site_name'] }}<span class="required"></span></th>
+                                <td>
+                                    <input type="text" id="site-name-input" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>{{ g.messages['global_announcement'] }}</th>
+                                <td>
+                                    <input type="text" id="global-announcement-input" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>{{ g.messages['language'] }}<span class="required"></span></th>
+                                <td>
+                                    <select id="language-select">
+                                        <option value="en_US">English</option>
+                                        <option value="pl_PL">Polish</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>{{ g.messages['user_made_boards'] }}</th>
+                                <td>
+                                    <input type="checkbox" id="user-made-boards-checkbox" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>{{ g.messages['global_css'] }}</th>
+                                <td>
+                                    <textarea id="global-css-input"></textarea>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>{{ g.messages['global_js'] }}</th>
+                                <td>
+                                    <textarea id="global-js-input"></textarea>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td>
+                                    <button id="submit-btn" type="button">{{ g.messages['save'] }}</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+{% endblock %}

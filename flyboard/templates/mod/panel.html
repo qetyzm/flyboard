@@ -21,7 +21,8 @@
                         <b>{{ g.messages['administrator_settings'] }}</b>
                         <ul class="undecorated-ul">
                             <li><a href="{{ url_for('mod.general_settings') }}">{{ g.messages['general_settings'] }}</a></li>
-                            <li><a href="#">{{ g.messages['moderators'] }}</a></li>
+                            <li><a href="#">{{ g.messages['user_permissions'] }}</a></li>
+                            <li><a href="#">{{ g.messages['board_list'] }}</a></li>
                             <li><a href="#">{{ g.messages['whitelist'] }}</a></li>
                         </ul>
                     </div>
@@ -31,7 +32,7 @@
                         <b>{{ g.messages['moderator_settings'] }}</b>
                         <ul class="undecorated-ul">
                             <li><a href="#">{{ g.messages['bans'] }}</a></li>
-                            <li><a href="#">{{ g.messages['boards'] }}</a></li>
+                            <li><a href="#">{{ g.messages['board_settings'] }}</a></li>
                             <li><a href="#">{{ g.messages['custom_flags'] }}</a></li>
                             <li><a href="#">{{ g.messages['wordfilters'] }}</a></li>
                             <li><a href="#">{{ g.messages['assets'] }}</a></li>

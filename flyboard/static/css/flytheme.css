@@ -136,7 +136,7 @@ center {
   text-align: center;
   text-align: left;
   width: 100%;
-  min-width: 400px;
+  min-width: 200px;
   margin-bottom: 40px;
   box-shadow: 0 0 0 1px gray;
 }
@@ -412,8 +412,39 @@ blockquote > span.quote {
 .settings-list {
 	width: 200px;
 	margin: auto;
+	height: 150px;
 }
 #logged-in-info td {
 	height: 15px;
 	padding: 10px;
+}
+.inner-table {
+	width: 80%;
+	margin: auto;
+}
+.inner-table input {
+	width: 100%;
+	text-align: left;
+}
+.inner-table td {
+	height: auto;
+}
+.inner-table th {
+	text-align: left;
+	width: 40%;
+	color: unset;
+	background: unset;
+	border: unset;
+	font-weight: normal;
+	vertical-align: top;
+}
+.required::before {
+	color: red;
+	content: "*";
+	vertical-align: super;
+	font-size: 10px;
+	font-weight: bold;
+}
+input[type=checkbox] { 
+	width: auto;
 }

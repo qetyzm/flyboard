@@ -54,8 +54,17 @@
     "wordfilters": "Wordfilters",
     "assets": "Assets",
     "administrator_settings": "Admin settings",
-    "moderators": "Moderators",
+    "user_permissions": "User permissions",
     "general_settings": "General settings",
     "whitelist": "Whitelist",
-    "logged_in_as": "Logged in as"
+    "logged_in_as": "Logged in as",
+    "board_list": "Board list",
+    "back": "Back",
+    "global_announcement": "Global announcement",
+    "site_name": "Site name",
+    "save": "Save",
+    "user_made_boards": "User-made boards",
+    "language": "Language",
+    "global_css": "Global CSS",
+    "global_js": "Global JS"
 }
